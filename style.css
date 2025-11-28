@@ -125,6 +125,28 @@ nav a:hover {
   color: #e5d4ff;
 }
 
+.featured-service {
+  border: 1px solid #7c3aed;       /* purple accent */
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.25);
+  margin-top: 10px;
+}
+
+.featured-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #c4b5fd;
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+
+.featured-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #e5d4ff;
+}
+
 /* ===== STATS GRID ===== */
 
 .stats-grid {
