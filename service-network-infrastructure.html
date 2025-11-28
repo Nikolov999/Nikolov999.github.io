@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network & Infrastructure Testing — YourName Security</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">YourName Security</div>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="section">
+  <h2>Network & Infrastructure Penetration Testing</h2>
+  <p>
+    Your network is the backbone of everything your organization does. At the same time, it’s constantly
+    being scanned, probed, and mapped by automated tools and potential attackers. This engagement is about
+    understanding exactly what you expose — and how an attacker could realistically move through it.
+  </p>
+
+  <div class="card">
+    <h3>What This Service Focuses On</h3>
+    <ul>
+      <li>External attack surface: internet-facing hosts, services, and management interfaces.</li>
+      <li>Internal network exposures: shares, weak segmentation, and unnecessary trust relationships.</li>
+      <li>Service misconfigurations and default or weak credentials.</li>
+      <li>Outdated software versions with known vulnerabilities.</li>
+      <li>Potential attack paths an intruder could chain together.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Typical Engagement Flow</h3>
+    <ul>
+      <li><strong>Scoping:</strong> agree on IP ranges, environments, and testing windows.</li>
+      <li><strong>Recon & Mapping:</strong> discovery of live hosts, open ports, and exposed services.</li>
+      <li><strong>Vulnerability & Configuration Review:</strong> identification of risky services and weak controls.</li>
+      <li><strong>Exploitation Attempts (where appropriate):</strong> carefully controlled attempts to validate impact.</li>
+      <li><strong>Reporting & Debrief:</strong> clear breakdown of what was found and what to fix first.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>What You Get Out of It</h3>
+    <ul>
+      <li>A prioritized list of internet-facing and internal exposures.</li>
+      <li>Evidence showing how those exposures could be abused in practice.</li>
+      <li>Concrete hardening recommendations (e.g. firewall rules, segmentation, config changes).</li>
+      <li>Input you can feed into patching, monitoring, and long-term security strategy.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>When This Service Is a Good Fit</h3>
+    <ul>
+      <li>You’re unsure what’s actually exposed to the internet right now.</li>
+      <li>You’ve gone through growth or infrastructure changes without a recent security review.</li>
+      <li>You want a practical view of how far an attacker could get from a single exposed entry point.</li>
+    </ul>
+    <p style="margin-top:10px;">
+      <a href="contact.html" class="hero-btn primary">Discuss Network Testing</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2025 YourName — Ethical Pentesting Specialist
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
