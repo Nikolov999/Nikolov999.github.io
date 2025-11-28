@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — EchoPentest Security</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">YourName Security</div>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="section">
+  <h2>Contact</h2>
+  <p>
+    If you’d like to discuss a potential engagement, ask about availability, or request a sample report,
+    reach out using the email below.
+  </p>
+
+  <div class="card">
+    <h3>Get in Touch</h3>
+    <p>
+      <script>
+        // change "youremail" and domain to your own
+        document.write("<strong>Email:</strong> " + "youremail" + "@" + "protonmail.com");
+      </script>
+      <noscript>
+        Enable JavaScript to view the email address.
+      </noscript>
+    </p>
+    <p>
+      Typical response time: within 24–48 hours on business days.
+    </p>
+  </div>
+
+  <p>
+    For security reasons, please avoid sending sensitive credentials or confidential data in your first email.
+    Once we agree on scope, we can discuss secure channels for sharing details.
+  </p>
+</section>
+
+<footer>
+  © 2025 Bobo Nikolov — Ethical Pentesting Specialist
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
