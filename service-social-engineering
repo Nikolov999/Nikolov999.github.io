@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Engineering & Awareness Testing — YourName Security</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">YourName Security</div>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="section">
+  <h2>Social Engineering & Awareness Testing</h2>
+  <p>
+    Technical defenses matter, but attackers still rely heavily on people.
+    This engagement helps you understand how staff respond to realistic but controlled
+    social engineering attempts, and how to build long-term awareness.
+  </p>
+
+  <div class="card">
+    <h3>What This Service Covers</h3>
+    <ul>
+      <li>Authorized phishing simulations tailored to your environment.</li>
+      <li>Scenarios aligned with real-world attacker tactics, not scare tactics.</li>
+      <li>Measurement of click rates, reporting rates, and response patterns.</li>
+      <li>Optional follow-up education materials or debrief sessions.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>How the Engagement Works</h3>
+    <ul>
+      <li>We define clear boundaries, objectives, and communication plans.</li>
+      <li>Campaigns are designed to be realistic but non-disruptive.</li>
+      <li>Only authorized scenarios are used; no surprises for stakeholders.</li>
+      <li>Results are anonymized where possible and used for improvement, not blame.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>What You Learn</h3>
+    <ul>
+      <li>How likely staff are to engage with suspicious messages.</li>
+      <li>Which types of lures and pretexts are most effective.</li>
+      <li>Where training, communication, or process updates are needed.</li>
+      <li>Practical recommendations to strengthen your human defenses.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Is This Right for You?</h3>
+    <p>
+      Choose this service if you want to go beyond generic awareness training and
+      measure how your organization responds to realistic, controlled scenarios.
+    </p>
+    <p style="margin-top:10px;">
+      <a href="contact.html" class="hero-btn primary">Plan a Social Engineering Exercise</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2025 YourName — Ethical Pentesting Specialist
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
