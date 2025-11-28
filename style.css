@@ -45,8 +45,8 @@ nav {
 
 /* logo image styling */
 .logo img {
-  height: 40px !important;
-  max-height: 40px !important;
+  height: 60px !important;
+  max-height: 60px !important;
   width: auto !important;
   object-fit: contain;
   display: block;
