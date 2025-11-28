@@ -35,10 +35,21 @@ nav {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 700;
   letter-spacing: 0.5px;
   color: #ffffff;
 }
+
+/* logo image styling */
+.logo img {
+  height: 32px;      /* tweak this until it feels right */
+  width: auto;
+  display: block;
+}
+
 
 /* nav links */
 
