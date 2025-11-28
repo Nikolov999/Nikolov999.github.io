@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Application Penetration Testing — YourName Security</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">YourName Security</div>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="section">
+  <h2>Web Application Penetration Testing</h2>
+  <p>
+    This engagement focuses on understanding how an attacker could abuse your web applications in the real world,
+    using techniques inspired by the OWASP Testing Guide and common attacker playbooks.
+  </p>
+
+  <div class="card">
+    <h3>What This Service Covers</h3>
+    <ul>
+      <li>Authentication and session handling weaknesses</li>
+      <li>Access control and authorization flaws between users and roles</li>
+      <li>Injection and input validation issues (SQLi, XSS, etc.)</li>
+      <li>Business logic flaws that scanners often miss</li>
+      <li>Data exposure and misconfigured security headers</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>How the Engagement Works</h3>
+    <ul>
+      <li>We agree on scope, targets, and testing windows.</li>
+      <li>I run a mix of manual testing and carefully tuned tooling.</li>
+      <li>All findings are reproduced and documented with evidence.</li>
+      <li>You get a prioritized list of issues with clear remediation steps.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Deliverables You Receive</h3>
+    <ul>
+      <li>Executive summary explaining risk in business language.</li>
+      <li>Technical breakdown of each vulnerability with impact and likelihood.</li>
+      <li>Concrete remediation guidance your devs can act on.</li>
+      <li>Optional follow-up session to walk through fixes.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Ready to Test Your Web Apps?</h3>
+    <p>
+      If you’re deploying new features or haven’t had a dedicated web application assessment recently,
+      this service is a strong starting point.
+    </p>
+    <p>
+      <a href="contact.html" class="hero-btn primary">Request Web App Pentest</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2025 YourName — Ethical Pentesting Specialist
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
