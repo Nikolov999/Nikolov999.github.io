@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #0d0d0d;
+  color: #e6e6e6;
+  line-height: 1.6;
+  padding-top: 80px; /* space for fixed navbar */
+}
+
+/* ===== NAVBAR ===== */
+
+nav {
+  background: #111;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+}
+
+.logo {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* links container */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  color: #00eaff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+}
+
+/* ===== BURGER BUTTON ===== */
+
+.menu-toggle {
+  display: none;          /* hidden on desktop */
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background: #00eaff;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+/* ===== HERO / SECTIONS ===== */
+
+.hero {
+  padding: 120px 40px 40px 40px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #00eaff;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 20px auto;
+  opacity: 0.8;
+}
+
+.section {
+  padding: 40px 40px 60px 40px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.section h2 {
+  color: #00eaff;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #111;
+  border: 1px solid #222;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+/* ===== FOOTER (same color as nav) ===== */
+
+footer {
+  background: #111;
+  text-align: center;
+  padding: 30px 20px;
+  opacity: 0.7;
+  font-size: 0.9rem;
+  margin-top: 60px;
+}
+
+/* ===== RESPONSIVE / MOBILE ===== */
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 90px;
+  }
+
+  nav {
+    padding: 12px 16px;
+  }
+
+  /* show burger, hide links by default */
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #111;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 16px 16px 16px;
+    display: none; /* hidden until open */
+    border-top: 1px solid #222;
+  }
+
+  .nav-links a {
+    margin: 8px 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hero {
+    padding: 100px 20px 30px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .section {
+    padding: 30px 20px 50px 20px;
+  }
+}
