@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Security Assessment — YourName Security</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">YourName Security</div>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="section">
+  <h2>API Security Assessment</h2>
+  <p>
+    APIs sit at the core of mobile apps, SPAs, integrations, and microservices.
+    This assessment focuses on how an attacker could interact with your APIs to access data
+    or functionality they shouldn’t have.
+  </p>
+
+  <div class="card">
+    <h3>What This Service Covers</h3>
+    <ul>
+      <li>Broken object-level and function-level authorization.</li>
+      <li>Authentication and token handling weaknesses.</li>
+      <li>Excessive data exposure in responses.</li>
+      <li>Input validation problems and injection risks.</li>
+      <li>Rate limiting and abuse of unauthenticated endpoints.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>How the Engagement Works</h3>
+    <ul>
+      <li>We review documentation, environments, and expected API consumers.</li>
+      <li>Endpoints are mapped, categorized, and prioritized based on risk.</li>
+      <li>Testing combines manual review with automated support where appropriate.</li>
+      <li>Findings are validated to avoid noise and focus on meaningful risk.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Deliverables You Receive</h3>
+    <ul>
+      <li>Overview of API exposure and key risk areas.</li>
+      <li>Issue-by-issue breakdown with affected endpoints and example requests.</li>
+      <li>Recommendations aligned with secure design patterns.</li>
+      <li>Input that can feed back into your SDLC and API gateway policies.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Is This Right for You?</h3>
+    <p>
+      Choose this service if your business relies on public or internal APIs,
+      you’re rolling out new integrations, or you want to validate that your API layer
+      is not the easiest way into your environment.
+    </p>
+    <p style="margin-top:10px;">
+      <a href="contact.html" class="hero-btn primary">Request an API Assessment</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2025 YourName — Ethical Pentesting Specialist
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
