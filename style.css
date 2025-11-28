@@ -8,7 +8,7 @@
 /* ===== GLOBAL ===== */
 
 body {
-  background: #7f7f94; 
+  background: #7c3aed;
   color: #e5e5e5;
   line-height: 1.6;
   padding-top: 80px; /* space for fixed navbar */
@@ -21,7 +21,7 @@ a {
 /* ===== NAVBAR ===== */
 
 nav {
-  background: linear-gradient(90deg, #5b21b6, #7c3aed, #a855f7); /* fading purple */
+  background: FFFFFF; /* fading purple */
   position: fixed;
   top: 0;
   left: 0;
@@ -173,7 +173,7 @@ nav a:hover {
 /* ===== FOOTER (same gradient as nav) ===== */
 
 footer {
-  background: linear-gradient(90deg, #5b21b6, #7c3aed, #a855f7);
+  background: #FFFFFF;
   text-align: center;
   padding: 30px 20px;
   font-size: 0.9rem;
