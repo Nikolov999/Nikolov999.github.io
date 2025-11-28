@@ -8,8 +8,8 @@
 /* ===== GLOBAL ===== */
 
 body {
-  background: #050505; /* black body */
-  color: #101013;
+  background: #101013; /* black body */
+  color: #f5f5f5;
   line-height: 1.6;
   padding-top: 80px; /* space for fixed navbar */
 }
