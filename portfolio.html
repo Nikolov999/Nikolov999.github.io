@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — EchoPentest Security</title>
+  <title>Portfolio — YourName Security</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -29,44 +29,84 @@
 <section class="section">
   <h2>Portfolio & Security Projects</h2>
   <p>
-    A sample of the kind of work and research I do in offensive security, automation, and security awareness.
+    In addition to hands-on pentesting work, I build tools and concepts that use automation and AI
+    to help organizations stay ahead of phishing campaigns and infrastructure weaknesses.
   </p>
 
   <div class="card">
-    <h3>Phishing Awareness Dashboard</h3>
+    <h3>AI Phishing Analyzer</h3>
     <p>
-      A dashboard concept to track simulated phishing campaigns, click rates, and training completion
-      — helping businesses visualize human risk over time.
+      An AI-driven phishing analysis concept designed to plug into supported email accounts (for example via secure
+      integrations such as OAuth with business-approved mail providers).
+    </p>
+    <p>
+      Once connected — and only for accounts you own or are authorized to monitor — incoming email is continuously
+      scanned for phishing indicators such as:
+    </p>
+    <ul>
+      <li>Suspicious URLs and lookalike domains</li>
+      <li>Language patterns typical of social engineering</li>
+      <li>Unexpected attachment types and formats</li>
+      <li>Sender anomalies compared to normal communication patterns</li>
+      <li>Scanning URL's for suspicious, hidden and malicious domains</li>
+    </ul>
+    <p>
+      The goal is to flag risky messages early, reduce the chance of a successful phishing attack, and provide
+      explainable alerts that help users learn what to watch out for.
     </p>
   </div>
 
   <div class="card">
-    <h3>Custom Recon & Automation Scripts</h3>
+    <h3>AI Vulnerability Analyzer</h3>
     <p>
-      Lightweight tools to automate recon, reporting, and basic enumeration during engagements.
-      Designed to work within agreed rules of engagement.
+      A concept tool focused on quickly assessing exposed services for systems you own or are explicitly authorized to test.
+      The idea is simple: you provide a target IP address within an approved scope, and the analyzer:
+    </p>
+    <ul>
+      <li>Identifies open ports and running services on the target</li>
+      <li>Attempts to determine service versions where possible</li>
+      <li>Compares discovered versions against known public vulnerabilities (CVEs)</li>
+      <li>Surfaces potential issues with context so they can be triaged and validated</li>
+    </ul>
+    <p>
+      This kind of tool is meant to support responsible, authorized vulnerability management — not random or
+      unauthorized scanning of systems.
     </p>
   </div>
 
   <div class="card">
-    <h3>Hands-on Lab & CTF Experience</h3>
+    <h3>Automation & Reporting Scripts</h3>
     <p>
-      Practical experience across CTF challenges and lab environments, focusing on web exploitation,
-      privilege escalation, and lateral movement scenarios.
+      Lightweight scripts to help during engagements with tasks such as:
+    </p>
+    <ul>
+      <li>Recon data collection and organization</li>
+      <li>Parsing scan results into human-readable summaries</li>
+      <li>Generating sections of reports from structured findings</li>
+    </ul>
+    <p>
+      The goal is to spend less time on repetitive tasks and more time on analysis and clear communication.
     </p>
   </div>
 
   <div class="card">
-    <h3>Security Hardening Exercises</h3>
+    <h3>Hands-On Labs & CTF Work</h3>
     <p>
-      Work on hardening systems, improving logging, and helping teams understand how an attacker thinks
-      — and how to stay one step ahead.
+      Ongoing practice in lab and capture-the-flag environments to stay sharp on:
+    </p>
+    <ul>
+      <li>Web exploitation and API abuse scenarios</li>
+      <li>Privilege escalation on different operating systems</li>
+      <li>Lateral movement and post-exploitation techniques</li>
+    </ul>
+    <p>
+      This practical experience feeds directly into the way I approach real-world assessments.
     </p>
   </div>
 </section>
 
 <footer>
-  © 2025 Bobo Nikolov — Ethical Pentesting Specialist
+  © 2025 YourName — Ethical Pentesting Specialist
 </footer>
 
 <script>
