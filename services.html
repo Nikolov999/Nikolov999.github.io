@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — EchoPentest Security</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">EchoPentest Security</div>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="section">
+  <h2>Professional Pentesting Services</h2>
+  <p>
+    Every engagement is scoped to your environment and goals. I follow industry standards and provide clear, actionable outcomes.
+  </p>
+
+  <div class="card">
+    <h3>Web Application Pentest</h3>
+    <p>
+      Full-stack testing of your web applications following OWASP Testing Guide principles.
+      I focus on authentication, authorization, input validation, business logic abuse, and data exposure.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>API Security Assessment</h3>
+    <p>
+      Testing REST/GraphQL APIs for insecure endpoints, broken access control, misconfigured auth,
+      and data leakage across environments.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Network & Infrastructure Testing</h3>
+    <p>
+      Internal and external network assessments, service enumeration, credential attack resistance,
+      and lateral movement simulation.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Social Engineering & Phishing</h3>
+    <p>
+      Controlled social engineering exercises and phishing simulations to test awareness and response,
+      without causing operational damage.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Red Team Style Engagements</h3>
+    <p>
+      Goal-driven simulations that chain multiple weaknesses to measure real-world impact and
+      test your detection and response capabilities.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Reporting & Remediation Support</h3>
+    <p>
+      Easy-to-read reports with risk ratings, evidence, and recommendations — plus optional follow-up
+      sessions with your technical teams.
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2025 Bobo Nikolov — Ethical Pentesting Specialist
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
