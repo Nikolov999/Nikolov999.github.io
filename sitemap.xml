@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://www.echopentest.com/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://www.echopentest.com/services.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.echopentest.com/portfolio.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.echopentest.com/contact.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- service detail pages -->
+  <url><loc>https://www.echopentest.com/service-web-app.html</loc></url>
+  <url><loc>https://www.echopentest.com/service-api-security.html</loc></url>
+  <url><loc>https://www.echopentest.com/service-network-infrastructure.html</loc></url>
+  <url><loc>https://www.echopentest.com/service-social-engineering.html</loc></url>
+  <url><loc>https://www.echopentest.com/service-red-team.html</loc></url>
+  <url><loc>https://www.echopentest.com/service-reporting.html</loc></url>
+
+  <!-- legal pages -->
+  <url><loc>https://www.echopentest.com/legal-terms.html</loc></url>
+  <url><loc>https://www.echopentest.com/legal-nda.html</loc></url>
+  <url><loc>https://www.echopentest.com/legal-scope.html</loc></url>
+  <url><loc>https://www.echopentest.com/legal-reporting.html</loc></url>
+
+  <!-- booking page (we’ll add below) -->
+  <url><loc>https://www.echopentest.com/book.html</loc></url>
+
+</urlset>
