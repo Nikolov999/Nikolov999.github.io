@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services — EchoPentest Security</title>
-  <link rel="icon" type="image/png" href="Logo/Logo.png">
+  <title>Services — ECHO Pentest</title>
+  <link rel="icon" type="Logo/Logo.png" href="favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,29 +12,66 @@
 
 <nav>
   <div class="logo">
-    <img src="Logo/LogoO.png" alt="YourName Security logo">
+    <img src="Logo/LogoO.png" alt="ECHO Pentest logo">
   </div>
 
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-    <div class="nav-links" id="nav-links">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="contact.html">Contact</a>
-    </div>
+  <div class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </div>
 </nav>
 
 <section class="section">
   <h2>Professional Pentesting Services</h2>
   <p>
-    I provide scoped, ethical penetration testing tailored to your environment, your risks, and your business goals.
-    The objective is simple: find and explain real-world weaknesses before attackers do — and give you a clear path to fixing them.
+    Every organization is different. Some need a focused test of a single application, others want a deeper look
+    at their network or people. Below is a quick overview and a simple “scope helper” to point you toward the
+    service that usually fits best.
   </p>
+
+  <!-- Simple scope wizard -->
+  <div class="card">
+    <h3>Not sure where to start?</h3>
+    <p>Pick the option that sounds closest to what you’re worried about:</p>
+
+    <form id="scope-form">
+      <div class="form-group">
+        <label>
+          <input type="radio" name="scope" value="web">
+          I’m mainly worried about a <strong>website or web application</strong>.
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          <input type="radio" name="scope" value="api">
+          I expose <strong>APIs / integrations</strong> to partners, apps, or third parties.
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          <input type="radio" name="scope" value="network">
+          I’m not sure what’s exposed on my <strong>network / infrastructure</strong>.
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          <input type="radio" name="scope" value="people">
+          I want to understand how my <strong>people would respond</strong> to phishing / social engineering.
+        </label>
+      </div>
+
+      <button type="submit" class="btn-primary">Show recommended service</button>
+      <div id="scope-result" style="margin-top:10px;font-size:0.95rem;"></div>
+    </form>
+  </div>
 
   <div class="card">
     <h3>Web Application Pentest</h3>
@@ -138,7 +175,7 @@
 </section>
 
 <section class="section">
-  <h2>Security in Numbers</h2>
+  <h2>📊 Security in Numbers</h2>
   <p>
     Cybersecurity is no longer a “big company only” problem. Automated tools constantly scan the internet, looking for
     any system that’s exposed or misconfigured — regardless of your size or industry.
@@ -185,7 +222,7 @@
 </section>
 
 <footer>
-  © 2025 EchoPentest — Ethical Pentesting Specialist
+  © 2025 ECHO Pentest — Ethical Penetration Testing
 </footer>
 
 <script>
@@ -195,6 +232,47 @@
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('open');
   });
+
+  // simple scope wizard
+  const scopeForm = document.getElementById('scope-form');
+  const scopeResult = document.getElementById('scope-result');
+
+  if (scopeForm) {
+    scopeForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const choice = scopeForm.scope.value;
+
+      let text = "";
+      let link = "";
+
+      switch (choice) {
+        case "web":
+          text = "You’ll probably get the most value from a Web Application Pentest.";
+          link = "service-web-app.html";
+          break;
+        case "api":
+          text = "You’ll probably get the most value from an API Security Assessment.";
+          link = "service-api-security.html";
+          break;
+        case "network":
+          text = "You’ll probably get the most value from Network & Infrastructure Testing.";
+          link = "service-network-infrastructure.html";
+          break;
+        case "people":
+          text = "You’ll probably get the most value from Social Engineering & Awareness Testing.";
+          link = "service-social-engineering.html";
+          break;
+        default:
+          text = "Pick one of the options above to see a recommended starting point.";
+      }
+
+      if (!choice) {
+        scopeResult.textContent = text;
+      } else {
+        scopeResult.innerHTML = text + ' <a href="' + link + '" class="hero-btn secondary" style="margin-left:8px;">View service</a>';
+      }
+    });
+  }
 </script>
 
 </body>
