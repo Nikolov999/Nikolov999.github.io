@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pentesting Methodology — ECHO Pentest</title>
+  <meta name="description" content="Learn how ECHO Pentest approaches penetration testing, from scoping and reconnaissance through exploitation, reporting and retesting." />
+  <link rel="canonical" href="https://www.echopentest.com/methodology.html" />
+
+  <link rel="icon" type="image/png" href="Logo/Logo.png">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NPTKWGC3N3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NPTKWGC3N3');
+  </script>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">
+    <img src="Logo/LogoO.png" alt="ECHO Pentest logo">
+  </div>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="book-a-pentest.html">Book a Pentest</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="section">
+  <h2>Pentesting Methodology</h2>
+  <p>
+    A penetration test is only as good as the approach behind it.
+    This page explains how I structure engagements so they are
+    <strong>realistic, repeatable and transparent</strong> — and so that you know exactly
+    what to expect at each step.
+  </p>
+
+  <div class="card">
+    <h3>Core Principles</h3>
+    <ul>
+      <li><strong>Authorized and controlled</strong> — all work is scoped and approved in writing.</li>
+      <li><strong>Risk-focused</strong> — emphasis on real-world impact, not just raw vulnerability counts.</li>
+      <li><strong>Evidence-based</strong> — every finding is backed by clear proof-of-concept or reproduction steps.</li>
+      <li><strong>Actionable</strong> — reports are written so your team actually knows what to do next.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Typical Engagement Phases</h2>
+
+  <div class="legal-grid">
+    <div class="legal-card">
+      <h3>1. Scoping & Planning</h3>
+      <ul>
+        <li>Define assets, environments and user roles in scope</li>
+        <li>Agree objectives, constraints and success criteria</li>
+        <li>Set testing windows and communication channels</li>
+        <li>Document everything in SoW and Rules of Engagement</li>
+      </ul>
+    </div>
+
+    <div class="legal-card">
+      <h3>2. Reconnaissance</h3>
+      <ul>
+        <li>Map exposed services, endpoints and technologies</li>
+        <li>Identify entry points for authenticated and unauthenticated users</li>
+        <li>Review documentation and client-provided information</li>
+        <li>Highlight obvious misconfigurations or weak points early</li>
+      </ul>
+    </div>
+
+    <div class="legal-card">
+      <h3>3. Vulnerability Analysis</h3>
+      <ul>
+        <li>Combine manual analysis with trusted tooling</li>
+        <li>Look for misconfigurations, outdated components and insecure defaults</li>
+        <li>Assess attack surface from the perspective of different roles</li>
+        <li>Prioritise findings by likelihood and impact</li>
+      </ul>
+    </div>
+
+    <div class="legal-card">
+      <h3>4. Exploitation & Abuse of Logic</h3>
+      <ul>
+        <li>Attempt to exploit identified weaknesses where safe and agreed</li>
+        <li>Chain issues together to demonstrate realistic attack paths</li>
+        <li>Test business logic and workflow abuse, not just technical bugs</li>
+        <li>Avoid unnecessary disruption to production systems</li>
+      </ul>
+    </div>
+
+    <div class="legal-card">
+      <h3>5. Post-Exploitation & Impact</h3>
+      <ul>
+        <li>Assess how far an attacker could pivot or escalate access</li>
+        <li>Identify data exposure, privilege escalation and lateral movement opportunities</li>
+        <li>Document “what could have happened” in clear business terms</li>
+        <li>Respect boundaries agreed in scope at all times</li>
+      </ul>
+    </div>
+
+    <div class="legal-card">
+      <h3>6. Reporting & Retesting</h3>
+      <ul>
+        <li>Deliver structured report with executive summary and technical detail</li>
+        <li>Prioritised remediation plan with clear next steps</li>
+        <li>Optional walkthrough call to explain findings and answer questions</li>
+        <li>Retesting of critical issues where agreed</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Methodology by Engagement Type</h2>
+
+  <div class="card">
+    <h3>Web & API Testing</h3>
+    <p>
+      For web and API assessments, I follow an approach inspired by the OWASP Testing Guide and OWASP
+      API Security Top 10, adapted to your specific architecture and risk profile.
+    </p>
+    <ul>
+      <li>Authentication and session management testing</li>
+      <li>Access control and multi-tenant isolation checks</li>
+      <li>Input validation, injection and deserialization tests</li>
+      <li>File upload, storage and data exposure testing</li>
+      <li>Abuse of business logic and workflow manipulation</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Network & Infrastructure</h3>
+    <p>
+      Network tests simulate how an attacker would approach your exposed services or internal environment
+      within the agreed ranges and constraints.
+    </p>
+    <ul>
+      <li>Host discovery, service enumeration and banner analysis</li>
+      <li>Weak protocols, default credentials and misconfigurations</li>
+      <li>Outdated software and publicly known vulnerabilities (CVEs)</li>
+      <li>Opportunities for lateral movement and privilege escalation</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Social Engineering & Scenarios</h3>
+    <p>
+      For phishing and scenario-based work, the focus is on realism without causing harm.
+    </p>
+    <ul>
+      <li>Carefully designed, realistic pretexts aligned with your industry</li>
+      <li>Controlled phishing campaigns and simulated attacks</li>
+      <li>Measurement of response, reporting and escalation paths</li>
+      <li>Feedback to strengthen awareness and processes, not blame individuals</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>What You Get at the End</h2>
+
+  <div class="card">
+    <ul>
+      <li><strong>Executive summary</strong> for leadership and non-technical stakeholders.</li>
+      <li><strong>Technical details</strong> of each finding with evidence and impact.</li>
+      <li><strong>Risk ratings and prioritisation</strong> so you know what to fix first.</li>
+      <li><strong>Remediation guidance</strong> your team can actually implement.</li>
+      <li><strong>Optional retest</strong> to verify that key issues are fully resolved.</li>
+    </ul>
+    <p style="margin-top:10px;">
+      To see what this looks like in practice, you can review a
+      <a href="sample-report.html">sample report structure</a> or
+      <a href="book-a-pentest.html">book a pentest</a> to discuss your environment.
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Left side: logo + brand -->
+    <div class="footer-section about">
+      <img src="Logo/LogoO.png" alt="ECHO Pentest" class="footer-logo">
+      <p>
+        Professional penetration testing for small and mid-size businesses.
+        Clear reports, ethical security assessments, and actionable remediation steps.
+      </p>
+    </div>
+
+    <!-- Middle: quick links -->
+    <div class="footer-section links">
+      <h3>Navigation</h3>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="book-a-pentest.html">Book a Pentest</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Resources section -->
+    <div class="footer-section resources">
+      <h3>Resources</h3>
+      <a href="pricing.html">Pricing & Scoping Guide</a>
+      <a href="methodology.html">Pentesting Methodology</a>
+      <a href="faq.html">FAQs</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="sample-report.html">Sample Report</a>
+      <a href="Checklist/cybersecurity_checklist.pdf" target="_blank">Security Checklist (PDF)</a>
+    </div>
+
+    <!-- Legal -->
+    <div class="footer-section legal">
+      <h3>Legal</h3>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="legal-disclaimer.html">Legal Disclaimer</a>
+      <a href="legal-terms.html">Terms of Engagement</a>
+      <a href="legal-nda.html">NDA & Confidentiality</a>
+    </div>
+
+  </div>
+
+  <div class="footer-seo-line" style="
+    width:100%;
+    text-align:center;
+    font-size:0.9rem;
+    color:#ccc;
+    margin:20px 0 5px;
+    padding:0 10px;
+  ">
+    Offering web application pentesting, network security assessments, API security reviews,
+    and cybersecurity consulting services across Ireland.
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 ECHO Pentest — Ethical Cybersecurity & Professional Penetration Testing
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  }
+</script>
+
+</body>
+</html>
