@@ -1,0 +1,27 @@
+<nav>
+  <div class="logo">
+    <img src="Logo/LogoO.png" alt="ECHO Pentest logo">
+  </div>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="book-a-pentest.html">Book a Pentest</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const links = document.getElementById("nav-links");
+  if (toggle) {
+    toggle.onclick = () => links.classList.toggle('open');
+  }
+</script>
