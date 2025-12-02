@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Echo Scanner — Passive DNS Recon | ECHO Pentest</title>
+  <meta name="description" content="Run a safe DNS & WHOIS passive recon scan and see how attackers profile your business before an attack." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Your global styles & JS -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="main.js" defer></script>
+
+  <!-- Page-specific styling -->
+  <style>
+    .scanner-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 1.5rem 4rem;
+      color: #e5e7eb;
+    }
+
+    .scanner-hero {
+      text-align: left;
+      margin-bottom: 3rem;
+    }
+
+    .scanner-eyebrow {
+      font-size: 0.85rem;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      color: #a5b4fc;
+      margin-bottom: 0.5rem;
+    }
+
+    .scanner-title {
+      font-size: clamp(2.1rem, 3vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .scanner-highlight {
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .scanner-subtitle {
+      font-size: 1rem;
+      max-width: 640px;
+      color: #9ca3af;
+      margin-bottom: 1.2rem;
+    }
+
+    .scanner-typing {
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.95rem;
+      color: #a5b4fc;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .scanner-typing span {
+      border-right: 2px solid #a5b4fc;
+      padding-right: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .scanner-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .scanner-badge {
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.8rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.16), transparent);
+      color: #e5e7eb;
+    }
+
+    .scanner-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 1.75rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 900px) {
+      .scanner-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .scanner-card {
+      border-radius: 16px;
+      padding: 1.5rem;
+      background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.16), transparent),
+                  rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(18px);
+    }
+
+    .scanner-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .scanner-card p {
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .scanner-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .scanner-card li {
+      font-size: 0.88rem;
+      color: #cbd5f5;
+    }
+
+    .scanner-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      margin-right: 0.35rem;
+      background: linear-gradient(135deg, #22c55e, #4ade80);
+    }
+
+    /* ========= Scanner widget ========= */
+
+    .scanner-widget {
+      margin-top: 1.5rem;
+    }
+
+    .scanner-widget-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .scanner-widget-header h2 {
+      font-size: 1.25rem;
+      margin: 0;
+    }
+
+    .scanner-widget-header span {
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+
+    .scanner-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .scanner-form input {
+      flex: 1 1 220px;
+      padding: 0.7rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.95);
+      color: #e5e7eb;
+      font-size: 0.95rem;
+    }
+
+    .scanner-form input:focus {
+      outline: none;
+      border-color: #818cf8;
+      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.6);
+    }
+
+    .scanner-form button {
+      border: none;
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      white-space: nowrap;
+    }
+
+    .scanner-form button:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+
+    .scanner-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .scanner-chip {
+      padding: 0.15rem 0.7rem;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+    }
+
+    .scanner-status {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-bottom: 0.4rem;
+      min-height: 1em;
+    }
+
+    .scanner-status strong {
+      color: #e5e7eb;
+    }
+
+    .scanner-error {
+      font-size: 0.8rem;
+      color: #fecaca;
+      min-height: 1.1em;
+    }
+
+    .scanner-results {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+
+    @media (max-width: 900px) {
+      .scanner-results {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .scanner-summary {
+      font-size: 0.85rem;
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 12px;
+      padding: 0.9rem 0.9rem;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .scanner-summary h4 {
+      margin: 0 0 0.4rem;
+      font-size: 0.9rem;
+    }
+
+    .scanner-summary ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .scanner-summary li span {
+      color: #9ca3af;
+    }
+
+    .scanner-raw {
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      padding: 0.9rem;
+      overflow-x: auto;
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.78rem;
+      color: #e5e7eb;
+    }
+
+    .scanner-raw code {
+      white-space: pre;
+    }
+
+    /* ========= CTA section ========= */
+
+    .scanner-cta {
+      margin-top: 4rem;
+      border-radius: 18px;
+      padding: 2rem 1.5rem;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent),
+                  radial-gradient(circle at bottom right, rgba(236, 72, 153, 0.18), transparent),
+                  #020617;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 900px) {
+      .scanner-cta {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+        align-items: center;
+      }
+    }
+
+    .scanner-cta h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .scanner-cta p {
+      font-size: 0.95rem;
+      color: #e5e7eb;
+      max-width: 520px;
+    }
+
+    .scanner-cta-list {
+      font-size: 0.9rem;
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0 0;
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .scanner-cta-list li {
+      color: #d1d5db;
+    }
+
+    .scanner-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+
+    .scanner-cta-primary,
+    .scanner-cta-secondary {
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .scanner-cta-primary {
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
+      color: #fff;
+    }
+
+    .scanner-cta-secondary {
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .scanner-cta-meta {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main class="scanner-page">
+    <!-- ========== HERO / INTRO ========== -->
+    <section class="scanner-hero">
+      <div class="scanner-eyebrow">Echo Scanner</div>
+      <h1 class="scanner-title">
+        See your attack surface
+        <span class="scanner-highlight">the way an attacker does.</span>
+      </h1>
+      <p class="scanner-subtitle">
+        Before anyone runs a single exploit, they quietly map your DNS, email and hosting footprint.
+        This passive recon scanner shows the high-level data they can collect in seconds – safely, with read-only lookups.
+      </p>
+
+      <div class="scanner-typing">
+        <span id="scanner-typing-text">DNS records loading…</span>
+      </div>
+
+      <div class="scanner-badges">
+        <div class="scanner-badge">Passive only – no intrusive scanning</div>
+        <div class="scanner-badge">DNS &amp; WHOIS footprint overview</div>
+        <div class="scanner-badge">Perfect for small &amp; mid-size businesses</div>
+      </div>
+    </section>
+
+    <!-- ========== VALUE GRID ABOVE TOOL ========== -->
+    <section class="scanner-grid">
+      <article class="scanner-card">
+        <h3><span class="scanner-dot"></span>What this tool shows you</h3>
+        <p>High-level signals attackers use during recon, including:</p>
+        <ul>
+          <li>• A / AAAA records – where your website actually lives</li>
+          <li>• MX &amp; NS records – email &amp; DNS infrastructure</li>
+          <li>• TXT records – SPF / DKIM / other security hints</li>
+          <li>• SOA &amp; WHOIS highlights – registrar &amp; lifecycle data</li>
+        </ul>
+      </article>
+
+      <article class="scanner-card">
+        <h3><span class="scanner-dot"></span>What it does <em>not</em> do</h3>
+        <p>This is a safe demo, not a full penetration test.</p>
+        <ul>
+          <li>• No active port scanning or service enumeration</li>
+          <li>• No exploitation or “breaking in” attempts</li>
+          <li>• No changes to your DNS or infrastructure</li>
+          <li>• For a full assessment, you still need a scoped pentest.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ========== SCANNER WIDGET ========== -->
+    <section class="scanner-widget">
+      <div class="scanner-widget-header">
+        <div>
+          <h2>DNS &amp; WHOIS Passive Recon</h2>
+          <span>Type a domain you control or want to evaluate (e.g. <code>example.com</code>).</span>
+        </div>
+      </div>
+
+      <div class="scanner-card">
+        <form class="scanner-form" id="scanner-form">
+          <input
+            id="scanner-domain"
+            type="text"
+            name="domain"
+            placeholder="example.com"
+            autocomplete="off"
+            required
+          />
+          <button type="submit" id="scanner-submit">
+            <span>Run scan</span>
+            <span>↻</span>
+          </button>
+        </form>
+
+        <div class="scanner-chip-row">
+          <div class="scanner-chip">Passive DNS</div>
+          <div class="scanner-chip">WHOIS summary</div>
+          <div class="scanner-chip">No intrusive traffic</div>
+        </div>
+
+        <div id="scanner-status" class="scanner-status"></div>
+        <div id="scanner-error" class="scanner-error"></div>
+
+        <div class="scanner-results">
+          <div class="scanner-summary">
+            <h4>High-level summary</h4>
+            <ul id="scanner-summary-list">
+              <li><span>• Run a scan to see your footprint.</span></li>
+            </ul>
+          </div>
+
+          <div class="scanner-raw">
+            <code id="scanner-raw-json">{
+  "message": "Results will appear here as JSON once you run a scan."
+}</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA BELOW TOOL ========== -->
+    <section class="scanner-cta">
+      <div>
+        <h2>Turn this snapshot into a full security picture.</h2>
+        <p>
+          The scanner only scratches the surface. In a real engagement I combine DNS, web, network and cloud
+          testing to show you exactly how an attacker would move from reconnaissance to impact – and how to stop them early.
+        </p>
+        <ul class="scanner-cta-list">
+          <li>• Scoped, legal penetration testing tailored to your environment</li>
+          <li>• Clear, non-fluffy reporting your team and insurers can understand</li>
+          <li>• Prioritised, actionable fixes instead of generic “best practices”</li>
+        </ul>
+        <div class="scanner-cta-actions">
+          <a href="book-a-pentest.html" class="scanner-cta-primary">
+            Book a discovery call
+          </a>
+          <a href="services.html" class="scanner-cta-secondary">
+            View full service breakdown
+          </a>
+        </div>
+        <div class="scanner-cta-meta">
+          No automated spam, no endless sales calls – just a technical walk-through of your real risk.
+        </div>
+      </div>
+
+      <div>
+        <ul class="scanner-cta-list">
+          <li><span class="scanner-dot"></span> External attacker view of your web &amp; API surface</li>
+          <li><span class="scanner-dot"></span> Network &amp; infrastructure testing for exposed services</li>
+          <li><span class="scanner-dot"></span> Password &amp; identity weaknesses that enable account takeover</li>
+          <li><span class="scanner-dot"></span> Business-logic abuse paths specific to your apps</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <!-- ========== PAGE-SPECIFIC JS ========== -->
+  <script>
+    // ---- Tiny typing effect in hero ----
+    (function () {
+      const words = [
+        "DNS records.",
+        "MX & NS mappings.",
+        "TXT & SPF policies.",
+        "WHOIS & registrar data."
+      ];
+      const el = document.getElementById("scanner-typing-text");
+      if (!el) return;
+
+      let wordIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
+
+      function tick() {
+        const word = words[wordIndex];
+
+        if (!deleting) {
+          charIndex++;
+          if (charIndex >= word.length) {
+            deleting = true;
+            setTimeout(tick, 1200);
+            el.textContent = word;
+            return;
+          }
+        } else {
+          charIndex--;
+          if (charIndex <= 0) {
+            deleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            setTimeout(tick, 250);
+            el.textContent = "";
+            return;
+          }
+        }
+
+        el.textContent = word.slice(0, charIndex);
+        setTimeout(tick, deleting ? 40 : 70);
+      }
+
+      tick();
+    })();
+
+    // ---- Scanner logic ----
+    (function () {
+      const API_BASE = "https://echopentest-backend-api.onrender.com";
+
+      const form = document.getElementById("scanner-form");
+      const input = document.getElementById("scanner-domain");
+      const submitBtn = document.getElementById("scanner-submit");
+      const statusEl = document.getElementById("scanner-status");
+      const errorEl = document.getElementById("scanner-error");
+      const summaryList = document.getElementById("scanner-summary-list");
+      const rawEl = document.getElementById("scanner-raw-json");
+
+      if (!form) return; // safety
+
+      function setLoading(isLoading, message) {
+        submitBtn.disabled = isLoading;
+        if (isLoading) {
+          statusEl.innerHTML = "<strong>Scanning…</strong> " + (message || "Backend may take a few seconds to wake up.");
+        } else {
+          statusEl.innerHTML = message || "";
+        }
+      }
+
+      function renderSummary(data) {
+        const items = [];
+
+        if (data.a_records && data.a_records.length) {
+          items.push("IPv4 hosts detected: " + data.a_records.join(", "));
+        }
+        if (data.aaaa_records && data.aaaa_records.length) {
+          items.push("IPv6 hosts detected: " + data.aaaa_records.join(", "));
+        }
+        if (data.mx_records && data.mx_records.length) {
+          items.push("Mail infrastructure (MX): " + data.mx_records.slice(0, 3).join(", "));
+        }
+        if (data.ns_records && data.ns_records.length) {
+          items.push("Authoritative name servers: " + data.ns_records.slice(0, 4).join(", "));
+        }
+        if (data.txt_records && data.txt_records.length) {
+          const spf = data.txt_records.find(v => v.toUpperCase().includes("SPF"));
+          if (spf) {
+            items.push("SPF policy present in TXT records.");
+          } else {
+            items.push("TXT records present – check for SPF / DKIM / other policies.");
+          }
+        }
+        if (data.whois_summary) {
+          if (data.whois_summary.registrar) {
+            items.push("Registrar: " + JSON.stringify(data.whois_summary.registrar));
+          }
+          if (data.whois_summary.expiration_date) {
+            items.push("Domain expiration insight available – monitor renewal risk.");
+          }
+        }
+
+        if (!items.length) {
+          items.push("No obvious public footprint detected. Either this domain is misconfigured or very minimal.");
+        }
+
+        summaryList.innerHTML = "";
+        items.forEach(text => {
+          const li = document.createElement("li");
+          li.textContent = "• " + text;
+          summaryList.appendChild(li);
+        });
+      }
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        errorEl.textContent = "";
+        const domain = input.value.trim().toLowerCase();
+
+        if (!domain) {
+          errorEl.textContent = "Please enter a domain.";
+          return;
+        }
+
+        // simple client-side sanity
+        if (!domain.includes(".") || domain.length > 253 || /\s|\/|@/.test(domain)) {
+          errorEl.textContent = "That doesn’t look like a valid domain.";
+          return;
+        }
+
+        setLoading(true);
+        rawEl.textContent = "{\n  \"status\": \"running scan…\"\n}";
+
+        try {
+          const res = await fetch(API_BASE + "/dns-recon", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ domain })
+          });
+
+          const data = await res.json().catch(() => ({}));
+
+          if (!res.ok) {
+            const msg = data.detail || "Scan failed. Try again in a moment.";
+            throw new Error(msg);
+          }
+
+          setLoading(false, "<strong>Scan complete.</strong> This is a limited passive snapshot, not a full pentest.");
+          renderSummary(data);
+          rawEl.textContent = JSON.stringify(data, null, 2);
+        } catch (err) {
+          console.error(err);
+          setLoading(false, "");
+          errorEl.textContent = err.message || "Something went wrong.";
+          rawEl.textContent = "{\n  \"error\": \"" + (err.message || "Scan failed") + "\"\n}";
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
