@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EchoPentest Client Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Shared nav/footer loader -->
+  <script src="main.js" defer></script>
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1220;
+      --card-bg: #0f172a;
+      --card-border: #1f2937;
+      --accent: #7c3aed;
+      --accent-soft: rgba(124, 58, 237, 0.2);
+      --accent-alt: #22d3ee;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --danger: #f97373;
+      --success: #4ade80;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    #nav-placeholder,
+    #footer-placeholder {
+      width: 100%;
+    }
+
+    .portal-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    /* HERO / INTRO */
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      padding: 1.25rem 1.5rem;
+      border-radius: 1rem;
+      background: radial-gradient(circle at top left, #1e293b 0, #020617 60%);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, var(--accent-soft), transparent 60%);
+      top: -120px;
+      right: -60px;
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--accent-alt);
+    }
+
+    .hero-kicker span.badge {
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background-color: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .hero-title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-sub {
+      max-width: 640px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .hero-bullets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-bullet {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--text-muted);
+    }
+
+    .hero-bullet-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent-alt);
+    }
+
+    .hero-status {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+    }
+
+    .hero-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--success);
+      box-shadow: 0 0 14px rgba(74, 222, 128, 0.9);
+    }
+
+    .hero-typing {
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo,
+        Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.78rem;
+      color: var(--accent-alt);
+      opacity: 0.85;
+      margin-top: 0.3rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid var(--accent-alt);
+    }
+
+    /* LAYOUT */
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.7fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* CARDS */
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 0.9rem;
+      padding: 1.1rem 1.2rem;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      background: radial-gradient(
+        circle at top left,
+        rgba(124, 58, 237, 0.16),
+        transparent 60%
+      );
+      transition: opacity 0.25s ease;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .card-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* LOGIN */
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .field label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .field input {
+      padding: 0.5rem 0.65rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background-color: rgba(15, 23, 42, 0.93);
+      color: var(--text-main);
+      outline: none;
+      font-size: 0.88rem;
+      transition: border-color 0.2s ease, background-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .field input:focus {
+      border-color: var(--accent);
+      background-color: #020617;
+      box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.4);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: 0.7rem;
+      border: none;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      background: linear-gradient(135deg, var(--accent), #4f46e5);
+      color: white;
+      box-shadow: 0 14px 40px rgba(88, 28, 135, 0.7);
+      transition: transform 0.07s ease, box-shadow 0.07s ease,
+        filter 0.07s ease;
+    }
+
+    .btn:active {
+      transform: translateY(1px) scale(0.99);
+      box-shadow: 0 8px 25px rgba(88, 28, 135, 0.7);
+      filter: brightness(0.93);
+    }
+
+    .btn.outline {
+      background: transparent;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-muted);
+      box-shadow: none;
+    }
+
+    .btn.outline:hover {
+      border-color: var(--accent-alt);
+      color: var(--accent-alt);
+    }
+
+    .btn-full {
+      width: 100%;
+      margin-top: 0.3rem;
+    }
+
+    .error-text {
+      font-size: 0.78rem;
+      color: var(--danger);
+      margin-top: 0.25rem;
+      min-height: 1.1em;
+    }
+
+    .hint {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background-color: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-muted);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--success);
+      box-shadow: 0 0 12px rgba(74, 222, 128, 1);
+    }
+
+    /* DASHBOARD */
+
+    .dashboard {
+      display: none;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .dashboard.active {
+      display: flex;
+    }
+
+    .dashboard-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.9rem;
+    }
+
+    .dashboard-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .dashboard-sub {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+      gap: 1.1rem;
+    }
+
+    @media (max-width: 900px) {
+      .dashboard-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .engagement-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-top: 0.4rem;
+      max-height: 260px;
+      overflow: auto;
+    }
+
+    .engagement-item {
+      padding: 0.5rem 0.6rem;
+      border-radius: 0.55rem;
+      border: 1px solid rgba(55, 65, 81, 0.8);
+      background-color: rgba(15, 23, 42, 0.9);
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background-color 0.15s ease,
+        transform 0.05s ease;
+    }
+
+    .engagement-item:hover {
+      border-color: var(--accent-alt);
+      background-color: #020617;
+    }
+
+    .engagement-item.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.5);
+    }
+
+    .engagement-title {
+      font-weight: 500;
+    }
+
+    .engagement-status {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-muted);
+    }
+
+    .engagement-status.active {
+      border-color: rgba(45, 212, 191, 0.7);
+      color: var(--accent-alt);
+    }
+
+    .engagement-status.completed {
+      border-color: rgba(74, 222, 128, 0.7);
+      color: var(--success);
+    }
+
+    /* MESSAGES */
+
+    .messages-container {
+      margin-top: 0.4rem;
+      border-radius: 0.6rem;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background-color: rgba(15, 23, 42, 0.97);
+      max-height: 260px;
+      min-height: 140px;
+      padding: 0.55rem 0.6rem;
+      overflow-y: auto;
+      font-size: 0.82rem;
+    }
+
+    .message-bubble {
+      max-width: 80%;
+      padding: 0.45rem 0.6rem;
+      border-radius: 0.8rem;
+      margin-bottom: 0.35rem;
+      line-height: 1.3;
+      word-wrap: break-word;
+    }
+
+    .message-bubble.client {
+      margin-right: auto;
+      background-color: rgba(31, 41, 55, 0.95);
+      border-bottom-left-radius: 0.15rem;
+      border: 1px solid rgba(75, 85, 99, 0.8);
+    }
+
+    .message-bubble.admin {
+      margin-left: auto;
+      background: linear-gradient(135deg, #4f46e5, var(--accent));
+      border-bottom-right-radius: 0.15rem;
+      box-shadow: 0 14px 38px rgba(79, 70, 229, 0.65);
+    }
+
+    .message-meta {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .message-input-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .message-input-wrapper textarea {
+      resize: vertical;
+      min-height: 70px;
+      max-height: 130px;
+      padding: 0.5rem 0.6rem;
+      border-radius: 0.6rem;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background-color: rgba(15, 23, 42, 0.97);
+      color: var(--text-main);
+      outline: none;
+      font-size: 0.86rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .message-input-wrapper textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.5);
+    }
+
+    .message-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .tiny-text {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* FILES */
+
+    .files-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-top: 0.3rem;
+      max-height: 160px;
+      overflow-y: auto;
+      font-size: 0.82rem;
+    }
+
+    .files-list li a {
+      color: var(--accent-alt);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .files-list li a:hover {
+      text-decoration: underline;
+    }
+
+    .file-upload-row {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+      margin-top: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .file-upload-row input[type="file"] {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      max-width: 220px;
+    }
+
+    .upload-status {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    /* UTILS */
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main>
+    <div class="portal-wrapper">
+      <!-- HERO INTRO -->
+      <section class="hero">
+        <div class="hero-kicker">
+          <span class="badge">EchoPentest</span>
+          <span>Client Portal</span>
+        </div>
+        <h1 class="hero-title">Secure portal for reports, evidence &amp; comms.</h1>
+        <p class="hero-sub">
+          Log in to review engagement progress, download pentest reports,
+          upload evidence, and message EchoPentest directly over an encrypted,
+          audit-logged channel.
+        </p>
+        <div class="hero-bullets">
+          <span class="hero-bullet">
+            <span class="hero-bullet-dot"></span>
+            Real-time engagement overview
+          </span>
+          <span class="hero-bullet">
+            <span class="hero-bullet-dot"></span>
+            Secure file delivery &amp; evidence upload
+          </span>
+          <span class="hero-bullet">
+            <span class="hero-bullet-dot"></span>
+            Conversation history preserved for every test
+          </span>
+        </div>
+        <div class="hero-status">
+          <span class="hero-status-dot"></span>
+          <span id="hero-status-text">Portal status: ready for authenticated clients.</span>
+        </div>
+        <div class="hero-typing" id="hero-typing"></div>
+      </section>
+
+      <section class="layout">
+        <!-- LOGIN / SESSION -->
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Sign in</div>
+              <div class="card-sub">
+                Use the credentials shared with you by EchoPentest.
+              </div>
+            </div>
+            <div class="status-pill" id="session-pill">
+              <span class="status-dot"></span>
+              <span id="session-status">Logged out</span>
+            </div>
+          </div>
+
+          <div id="login-section">
+            <div class="field">
+              <label for="login-email">Business email</label>
+              <input
+                type="email"
+                id="login-email"
+                placeholder="you@company.com"
+                autocomplete="email"
+              />
+            </div>
+
+            <div class="field">
+              <label for="login-password">Password</label>
+              <input
+                type="password"
+                id="login-password"
+                placeholder="••••••••"
+                autocomplete="current-password"
+              />
+            </div>
+
+            <button class="btn btn-full" id="login-btn">
+              <span>Sign in securely</span>
+            </button>
+
+            <div class="error-text" id="login-error"></div>
+            <p class="hint">
+              Forgot your login? Contact EchoPentest and we’ll re-issue access
+              securely.
+            </p>
+          </div>
+
+          <div id="logout-section" class="hidden">
+            <p class="hint">
+              You’re logged in as <span id="current-email"></span>. Use the
+              controls on the right to navigate your engagement.
+            </p>
+            <button class="btn outline btn-full" id="logout-btn">
+              Log out
+            </button>
+          </div>
+        </section>
+
+        <!-- DASHBOARD -->
+        <section class="card">
+          <div class="dashboard-header">
+            <div>
+              <div class="dashboard-title">
+                Engagement overview
+              </div>
+              <div class="dashboard-sub" id="dashboard-sub">
+                Sign in to see your active and historical tests.
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard" id="dashboard">
+            <div class="dashboard-grid">
+              <!-- Engagements -->
+              <div>
+                <div class="card-sub">Your engagements</div>
+                <ul id="engagement-list" class="engagement-list">
+                  <li class="tiny-text">
+                    No engagements loaded yet.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Messages -->
+              <div>
+                <div class="card-sub">Messages</div>
+                <div id="messages-container" class="messages-container">
+                  <p class="tiny-text">Select an engagement to view messages.</p>
+                </div>
+                <div class="message-input-wrapper" id="message-input-wrapper">
+                  <textarea
+                    id="message-text"
+                    placeholder="Type a message to EchoPentest about this engagement..."
+                  ></textarea>
+                  <div class="message-actions">
+                    <button class="btn" id="send-message-btn">
+                      Send message
+                    </button>
+                    <span class="tiny-text">
+                      Channel is monitored during agreed testing hours.
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Files -->
+            <div style="margin-top: 1rem;">
+              <div class="card-sub">Files &amp; reports</div>
+              <ul id="files-list" class="files-list">
+                <li class="tiny-text">No files yet.</li>
+              </ul>
+
+              <div class="file-upload-row">
+                <input type="file" id="file-upload" />
+                <button class="btn outline" id="upload-btn">
+                  Upload evidence
+                </button>
+              </div>
+              <div class="upload-status" id="upload-status"></div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    // =========================
+    // CONFIG
+    // =========================
+
+    // TODO: set this to your actual Render backend URL
+    const API_BASE = "https://echopentest-client-portal-backend.onrender.com/";
+
+    // =========================
+    // STATE
+    // =========================
+
+    let authToken = null;
+    let currentEngagementId = null;
+    let currentEmail = null;
+
+    // =========================
+    // UTILS
+    // =========================
+
+    const $ = (id) => document.getElementById(id);
+
+    function authHeaders() {
+      return authToken
+        ? {
+            Authorization: "Bearer " + authToken,
+          }
+        : {};
+    }
+
+    function setSessionStatus(text, loggedIn) {
+      $("session-status").textContent = text;
+      const pill = $("session-pill");
+      if (loggedIn) {
+        pill.classList.add("active");
+      } else {
+        pill.classList.remove("active");
+      }
+    }
+
+    function setHeroStatus(text) {
+      $("hero-status-text").textContent = text;
+    }
+
+    function setDashboardSubtitle(text) {
+      $("dashboard-sub").textContent = text;
+    }
+
+    function setError(id, message) {
+      $(id).textContent = message || "";
+    }
+
+    function clearChildren(el) {
+      while (el.firstChild) el.removeChild(el.firstChild);
+    }
+
+    // =========================
+    // HERO TYPING EFFECT
+    // =========================
+
+    const typingLines = [
+      "Initializing encrypted client channel…",
+      "Attaching to engagement timeline…",
+      "Ready. Use the portal to keep your attack surface honest."
+    ];
+
+    function startTypingEffect() {
+      const el = $("hero-typing");
+      let lineIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
+
+      function tick() {
+        const currentLine = typingLines[lineIndex];
+
+        if (!deleting) {
+          charIndex++;
+          if (charIndex > currentLine.length) {
+            deleting = true;
+            setTimeout(tick, 1500);
+            el.textContent = currentLine;
+            return;
+          }
+        } else {
+          charIndex--;
+          if (charIndex === 0) {
+            deleting = false;
+            lineIndex = (lineIndex + 1) % typingLines.length;
+          }
+        }
+
+        el.textContent = currentLine.slice(0, charIndex);
+        const delay = deleting ? 40 : 55;
+        setTimeout(tick, delay);
+      }
+
+      tick();
+    }
+
+    // =========================
+    // AUTH
+    // =========================
+
+    async function login() {
+      const email = $("login-email").value.trim();
+      const password = $("login-password").value.trim();
+      setError("login-error", "");
+
+      if (!email || !password) {
+        setError("login-error", "Email and password are required.");
+        return;
+      }
+
+      try {
+        setHeroStatus("Attempting secure sign-in…");
+        const res = await fetch(API_BASE + "/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        });
+
+        if (!res.ok) {
+          setError("login-error", "Invalid credentials.");
+          setHeroStatus("Sign-in failed. Check your details and try again.");
+          return;
+        }
+
+        const data = await res.json();
+        authToken = data.access_token;
+        currentEmail = email;
+
+        $("login-section").classList.add("hidden");
+        $("logout-section").classList.remove("hidden");
+        $("current-email").textContent = email;
+
+        $("dashboard").classList.add("active");
+        setSessionStatus("Active session", true);
+        setHeroStatus("Authenticated. Loading your engagements…");
+        setDashboardSubtitle("Your authenticated portal session is active.");
+
+        await loadEngagements();
+      } catch (err) {
+        console.error(err);
+        setError("login-error", "Something went wrong. Try again.");
+        setHeroStatus("Temporary error talking to the API.");
+      }
+    }
+
+    function logout() {
+      authToken = null;
+      currentEngagementId = null;
+      currentEmail = null;
+
+      $("login-section").classList.remove("hidden");
+      $("logout-section").classList.add("hidden");
+      $("dashboard").classList.remove("active");
+
+      setSessionStatus("Logged out", false);
+      setHeroStatus("Portal status: ready for authenticated clients.");
+      setDashboardSubtitle("Sign in to see your active and historical tests.");
+
+      $("engagement-list").innerHTML =
+        '<li class="tiny-text">No engagements loaded yet.</li>';
+      $("messages-container").innerHTML =
+        '<p class="tiny-text">Select an engagement to view messages.</p>';
+      $("files-list").innerHTML =
+        '<li class="tiny-text">No files yet.</li>';
+      $("upload-status").textContent = "";
+      $("login-email").value = "";
+      $("login-password").value = "";
+    }
+
+    // =========================
+    // DATA LOADERS
+    // =========================
+
+    async function loadEngagements() {
+      try {
+        const res = await fetch(API_BASE + "/client/engagements", {
+          headers: {
+            "Content-Type": "application/json",
+            ...authHeaders(),
+          },
+        });
+
+        if (!res.ok) {
+          console.error("Failed to load engagements");
+          setDashboardSubtitle(
+            "Could not load engagements. If this persists, contact EchoPentest."
+          );
+          return;
+        }
+
+        const engagements = await res.json();
+        const list = $("engagement-list");
+        clearChildren(list);
+
+        if (!engagements.length) {
+          list.innerHTML =
+            '<li class="tiny-text">No engagements are currently attached to this account.</li>';
+          setDashboardSubtitle(
+            "No active engagements yet. EchoPentest will attach tests to this account once booked."
+          );
+          return;
+        }
+
+        engagements.forEach((eng, idx) => {
+          const li = document.createElement("li");
+          li.className = "engagement-item";
+          li.dataset.id = eng.id;
+
+          const title = document.createElement("span");
+          title.className = "engagement-title";
+          title.textContent = eng.title;
+
+          const status = document.createElement("span");
+          status.className = "engagement-status " + eng.status;
+          status.textContent = eng.status.toUpperCase();
+
+          li.appendChild(title);
+          li.appendChild(status);
+
+          li.addEventListener("click", () => {
+            selectEngagement(eng.id);
+          });
+
+          list.appendChild(li);
+
+          // auto-select first
+          if (idx === 0) {
+            li.classList.add("active");
+            currentEngagementId = eng.id;
+          }
+        });
+
+        if (currentEngagementId) {
+          await loadMessages(currentEngagementId);
+          await loadFiles(currentEngagementId);
+          $("message-input-wrapper").classList.remove("hidden");
+        }
+
+        setDashboardSubtitle(
+          "Select an engagement to inspect messages, reports and evidence."
+        );
+      } catch (err) {
+        console.error(err);
+        setDashboardSubtitle(
+          "Error loading engagements. Check your connection or contact EchoPentest."
+        );
+      }
+    }
+
+    function highlightCurrentEngagement() {
+      const items = document.querySelectorAll(".engagement-item");
+      items.forEach((item) => {
+        const id = parseInt(item.dataset.id, 10);
+        if (id === currentEngagementId) {
+          item.classList.add("active");
+        } else {
+          item.classList.remove("active");
+        }
+      });
+    }
+
+    async function selectEngagement(id) {
+      currentEngagementId = id;
+      highlightCurrentEngagement();
+      await loadMessages(id);
+      await loadFiles(id);
+    }
+
+    async function loadMessages(engagementId) {
+      try {
+        const res = await fetch(API_BASE + "/messages/" + engagementId, {
+          headers: authHeaders(),
+        });
+
+        const container = $("messages-container");
+        clearChildren(container);
+
+        if (!res.ok) {
+          console.error("Failed to load messages");
+          container.innerHTML =
+            '<p class="tiny-text">Could not load messages for this engagement.</p>';
+          return;
+        }
+
+        const messages = await res.json();
+
+        if (!messages.length) {
+          container.innerHTML =
+            '<p class="tiny-text">No messages yet. Use the box below to start the conversation.</p>';
+          return;
+        }
+
+        messages.forEach((m) => {
+          const bubble = document.createElement("div");
+          bubble.className = "message-bubble " + m.direction;
+
+          const meta = document.createElement("div");
+          meta.className = "message-meta";
+
+          const author =
+            m.direction === "admin" ? "EchoPentest" : "You";
+          meta.innerHTML =
+            "<span>" +
+            author +
+            "</span><span>" +
+            new Date(m.created_at).toLocaleString() +
+            "</span>";
+
+          const text = document.createElement("div");
+          text.textContent = m.content;
+
+          bubble.appendChild(meta);
+          bubble.appendChild(text);
+          container.appendChild(bubble);
+        });
+
+        container.scrollTop = container.scrollHeight;
+      } catch (err) {
+        console.error(err);
+        $("messages-container").innerHTML =
+          '<p class="tiny-text">Error loading messages.</p>';
+      }
+    }
+
+    async function sendMessage() {
+      if (!authToken || !currentEngagementId) return;
+
+      const content = $("message-text").value.trim();
+      if (!content) return;
+
+      try {
+        const res = await fetch(API_BASE + "/messages/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            ...authHeaders(),
+          },
+          body: JSON.stringify({
+            engagement_id: currentEngagementId,
+            content,
+          }),
+        });
+
+        if (!res.ok) {
+          console.error("Failed to send message");
+          return;
+        }
+
+        $("message-text").value = "";
+        await loadMessages(currentEngagementId);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    async function loadFiles(engagementId) {
+      try {
+        const res = await fetch(API_BASE + "/files/" + engagementId, {
+          headers: authHeaders(),
+        });
+
+        const list = $("files-list");
+        clearChildren(list);
+
+        if (!res.ok) {
+          console.error("Failed to load files");
+          list.innerHTML =
+            '<li class="tiny-text">Could not load files for this engagement.</li>';
+          return;
+        }
+
+        const files = await res.json();
+
+        if (!files.length) {
+          list.innerHTML =
+            '<li class="tiny-text">No files yet. Reports and exports will appear here when published.</li>';
+          return;
+        }
+
+        files.forEach((f) => {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = f.file_url;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          a.textContent = f.filename;
+          li.appendChild(a);
+          list.appendChild(li);
+        });
+      } catch (err) {
+        console.error(err);
+        $("files-list").innerHTML =
+          '<li class="tiny-text">Error loading files.</li>';
+      }
+    }
+
+    async function uploadFile() {
+      if (!authToken || !currentEngagementId) return;
+
+      const input = $("file-upload");
+      if (!input.files.length) {
+        $("upload-status").textContent = "Choose a file first.";
+        return;
+      }
+
+      const file = input.files[0];
+      const formData = new FormData();
+      formData.append("upload", file);
+
+      $("upload-status").textContent = "Uploading…";
+
+      try {
+        const res = await fetch(
+          API_BASE + "/files/upload?engagement_id=" + currentEngagementId,
+          {
+            method: "POST",
+            headers: {
+              ...authHeaders(),
+            },
+            body: formData,
+          }
+        );
+
+        if (!res.ok) {
+          console.error("Upload failed");
+          $("upload-status").textContent =
+            "Upload failed. If this persists, send directly to EchoPentest.";
+          return;
+        }
+
+        $("upload-status").textContent = "File uploaded.";
+        input.value = "";
+        await loadFiles(currentEngagementId);
+      } catch (err) {
+        console.error(err);
+        $("upload-status").textContent = "Upload error.";
+      }
+    }
+
+    // =========================
+    // EVENT BINDINGS
+    // =========================
+
+    document.addEventListener("DOMContentLoaded", () => {
+      startTypingEffect();
+
+      $("login-btn").addEventListener("click", login);
+      $("logout-btn").addEventListener("click", logout);
+      $("send-message-btn").addEventListener("click", sendMessage);
+      $("upload-btn").addEventListener("click", uploadFile);
+
+      // Enter key for login
+      $("login-password").addEventListener("keyup", (e) => {
+        if (e.key === "Enter") login();
+      });
+    });
+  </script>
+</body>
+</html>
