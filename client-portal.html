@@ -5,13 +5,15 @@
   <title>EchoPentest Client Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Your shared nav/footer loader -->
+  <!-- Your shared site styles (navbar/footer etc.) -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Shared nav/footer loader -->
   <script src="main.js" defer></script>
 
   <style>
     :root {
       --cp-bg: #050816;
-      --cp-bg-alt: #0b1220;
       --cp-card-bg: #0f172a;
       --cp-card-border: #1f2937;
       --cp-accent: #7c3aed;
@@ -23,8 +25,7 @@
       --cp-success: #4ade80;
     }
 
-    /* Scope EVERYTHING under #client-portal-root so nav/footer stay untouched */
-
+    /* Entire portal is scoped here – nothing leaks into nav/footer */
     #client-portal-root {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
@@ -211,7 +212,7 @@
       color: var(--cp-text-muted);
     }
 
-    /* BUTTONS / INPUTS */
+    /* INPUTS / BUTTONS */
 
     #client-portal-root .cp-field {
       display: flex;
@@ -628,7 +629,8 @@
 
           <div id="cp-logout-section" class="cp-hidden">
             <p class="cp-hint">
-              You’re logged in as <span id="cp-current-email"></span>. Use the controls on the right to navigate your engagement.
+              You’re logged in as <span id="cp-current-email"></span>. Use the
+              controls on the right to navigate your engagement.
             </p>
             <button class="cp-btn cp-outline cp-btn-full" id="cp-logout-btn">
               Log out
@@ -640,7 +642,9 @@
         <section class="cp-card">
           <div class="cp-dashboard-header">
             <div>
-              <div class="cp-dashboard-title">Engagement overview</div>
+              <div class="cp-dashboard-title">
+                Engagement overview
+              </div>
               <div class="cp-dashboard-sub" id="cp-dashboard-sub">
                 Sign in to see your active and historical tests.
               </div>
@@ -653,7 +657,9 @@
               <div>
                 <div class="cp-card-sub">Your engagements</div>
                 <ul id="cp-engagement-list" class="cp-engagement-list">
-                  <li class="cp-tiny-text">No engagements loaded yet.</li>
+                  <li class="cp-tiny-text">
+                    No engagements loaded yet.
+                  </li>
                 </ul>
               </div>
 
@@ -664,9 +670,14 @@
                   <p class="cp-tiny-text">Select an engagement to view messages.</p>
                 </div>
                 <div class="cp-message-input-wrapper" id="cp-message-input-wrapper">
-                  <textarea id="cp-message-text" placeholder="Type a message to EchoPentest about this engagement..."></textarea>
+                  <textarea
+                    id="cp-message-text"
+                    placeholder="Type a message to EchoPentest about this engagement..."
+                  ></textarea>
                   <div class="cp-message-actions">
-                    <button class="cp-btn" id="cp-send-message-btn">Send message</button>
+                    <button class="cp-btn" id="cp-send-message-btn">
+                      Send message
+                    </button>
                     <span class="cp-tiny-text">
                       Channel is monitored during agreed testing hours.
                     </span>
@@ -700,6 +711,7 @@
 
   <script>
     // ===== CONFIG =====
+    // TODO: change this to your actual Render backend URL
     const API_BASE = "https://YOUR-BACKEND-ONRENDER.onrender.com";
 
     // ===== STATE =====
