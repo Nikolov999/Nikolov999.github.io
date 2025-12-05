@@ -58,9 +58,10 @@ nav {
   display: block;
 }
 
-/* nav links */
+/* nav links (desktop baseline) */
 
-.nav-links {
+.nav-links,
+#nav-links {
   display: flex;
   align-items: center;
 }
@@ -77,21 +78,26 @@ nav a:hover {
   transform: translateY(-1px);
 }
 
-/* ===== BURGER BUTTON ===== */
+/* ===== BURGER BUTTON (base) ===== */
 
 .menu-toggle {
+  display: none;
+}
+
+#menu-toggle {
   display: none;
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
 }
 
-.menu-toggle span {
+#menu-toggle span {
   width: 24px;
-  height: 2px;
+  height: 3px;
   background: #ffffff;
   margin: 4px 0;
-  transition: 0.3s;
+  border-radius: 2px;
+  transition: 0.3s ease;
 }
 
 /* ===== HERO (2-column) ===== */
@@ -493,7 +499,6 @@ footer {
   }
 }
 
-
 /* ===== RESPONSIVE ===== */
 
 @media (max-width: 1000px) {
@@ -502,6 +507,7 @@ footer {
   }
 }
 
+/* HERO / LAYOUT responsive tweaks */
 @media (max-width: 768px) {
   body {
     padding-top: 90px;
@@ -509,29 +515,6 @@ footer {
 
   nav {
     padding: 12px 16px;
-  }
-
-  .menu-toggle {
-    display: flex;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #5b21b6;
-    width: 100%;
-    flex-direction: column;
-    padding: 10px 16px;
-    display: none;
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .nav-links a {
-    margin: 8px 0;
   }
 
   .hero {
@@ -559,5 +542,79 @@ footer {
 @media (max-width: 600px) {
   .legal-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------------------
+   MOBILE NAV (Modern Slide-In)
+------------------------------ */
+
+@media (max-width: 820px) {
+  #menu-toggle {
+    display: flex;
+    z-index: 1001;
+  }
+
+  nav {
+    position: fixed;
+  }
+
+  /* The menu panel */
+  #nav-links {
+    position: fixed;
+    top: 0;
+    right: -260px; /* hidden off-screen */
+    width: 260px;
+    height: 100vh;
+    background: #0a0a0f; /* deep black-purple */
+    padding: 80px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    transition: right 0.28s ease;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.6);
+    z-index: 1000;
+  }
+
+  #nav-links a {
+    font-size: 1.1rem;
+    color: #e5e5e5;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    margin-left: 0;
+  }
+
+  /* Slide-in active */
+  #nav-links.open {
+    right: 0;
+  }
+
+  /* Background overlay when menu open */
+  #nav-overlay {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+    z-index: 900;
+  }
+
+  #nav-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Burger animation */
+  #menu-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  #menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
   }
 }
