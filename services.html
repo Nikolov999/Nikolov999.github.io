@@ -12,15 +12,15 @@
   <link rel="stylesheet" href="style.css">
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NPTKWGC3N3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NPTKWGC3N3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-NPTKWGC3N3');
-</script>
-<script src="main.js" defer></script>
+    gtag('config', 'G-NPTKWGC3N3');
+  </script>
+  <script src="main.js" defer></script>
 
 </head>
 
@@ -88,6 +88,7 @@
     <p>
       You receive a report mapped to risk, with clear examples, impact, and remediation steps your developers can action.
     </p>
+    <p><strong>Typical range:</strong> €350 – €900 for small sites, €900 – €1,800 for larger or more complex applications.</p>
     <p style="margin-top:10px;">
       <a href="service-web-app.html" class="hero-btn secondary">Learn more</a>
     </p>
@@ -105,6 +106,7 @@
       <li>Overly permissive responses and data leakage</li>
       <li>Rate limiting, brute force, and enumeration weaknesses</li>
     </ul>
+    <p><strong>Typical range:</strong> €450 – €1,200 depending on the number of endpoints and authentication complexity.</p>
     <p style="margin-top:10px;">
       <a href="service-api-security.html" class="hero-btn secondary">Learn more</a>
     </p>
@@ -122,6 +124,7 @@
       <li>Unnecessary exposure of services and management interfaces</li>
       <li>Opportunities for lateral movement after an initial foothold</li>
     </ul>
+    <p><strong>Typical range:</strong> €500 – €1,500 depending on the number of hosts and internal vs. external scope.</p>
     <p style="margin-top:10px;">
       <a href="service-network-infrastructure.html" class="hero-btn secondary">Learn more</a>
     </p>
@@ -138,6 +141,7 @@
       <li>Identify gaps in training and internal processes</li>
       <li>Provide feedback that improves awareness without blame</li>
     </ul>
+    <p><strong>Typical range:</strong> €250 – €750 for phishing simulations, €750 – €1,400 for multi-step social engineering scenarios.</p>
     <p style="margin-top:10px;">
       <a href="service-social-engineering.html" class="hero-btn secondary">Learn more</a>
     </p>
@@ -153,6 +157,7 @@
       <li>Chain multiple weaknesses together to show true impact</li>
       <li>Help you test detection, incident response, and playbooks</li>
     </ul>
+    <p><strong>Typical range:</strong> €1,200 – €3,500 depending on objectives, targets, and level of stealth required.</p>
     <p style="margin-top:10px;">
       <a href="service-red-team.html" class="hero-btn secondary">Learn more</a>
     </p>
@@ -168,6 +173,7 @@
       <li>Walkthroughs of critical findings and attack paths</li>
       <li>Remediation guidance and optional follow-up to verify fixes</li>
     </ul>
+    <p><strong>Included with every engagement.</strong> Optional remediation re-testing typically ranges from €150 – €450 depending on scope.</p>
     <p style="margin-top:10px;">
       <a href="service-reporting.html" class="hero-btn secondary">Learn more</a>
     </p>
@@ -229,9 +235,11 @@
   const menuToggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');
 
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-  });
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  }
 
   // simple scope wizard
   const scopeForm = document.getElementById('scope-form');
