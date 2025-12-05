@@ -17,8 +17,18 @@
   </url>
 
   <url>
-    <loc>https://www.echopentest.com/portfolio.html</loc>
+    <loc>https://www.echopentest.com/client-portal.html</loc>
     <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.echopentest.com/scanner.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.echopentest.com/portfolio.html</loc>
+    <priority>0.90</priority>
   </url>
 
   <url>
