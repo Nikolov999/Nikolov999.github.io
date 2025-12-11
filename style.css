@@ -405,6 +405,35 @@ button.btn-primary:hover {
   opacity: 0.9;
 }
 
+.closing-section {
+  margin-top: 40px;
+  padding: 25px 20px;
+  text-align: left;
+}
+
+.closing-section h3 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.closing-list {
+  margin: 0 0 20px 0;
+  padding-left: 20px;
+}
+
+.closing-list li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.closing-note {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: var(--text-muted, #666);
+  margin-bottom: 15px;
+}
+
+
 /* ===== FOOTER (purple gradient) ===== */
 
 footer {
