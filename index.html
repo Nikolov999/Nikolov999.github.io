@@ -4,7 +4,6 @@
   <title>ECHO Pentest — Penetration Testing for Small Businesses in Ireland</title>
   <meta name="description" content="Professional penetration testing for small and mid-size businesses in Ireland. Web, network and API security testing with clear reports and actionable remediation steps.">
   <meta name="keywords" content="penetration testing, pentest, ethical hacking, web application security, API security, network pentest, phishing simulation, red teaming, cybersecurity consultant, Ireland" />
-
   <meta name="author" content="ECHO Pentest" />
 
   <!-- Mobile / browser basics -->
@@ -20,8 +19,8 @@
   
   <link rel="icon" type="image/png" href="Logo.png">
   <link rel="icon" type="image/x-icon" href="Logo.ico">
-<link rel="apple-touch-icon" href="Logo.ico">
-<link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="Logo.ico">
+  <link rel="shortcut icon" href="/favicon.ico">
 
   <link rel="stylesheet" href="style.css">
 
@@ -34,213 +33,336 @@
     gtag('config', 'G-NPTKWGC3N3');
   </script>
   <script src="main.js" defer></script>
-
 </head>
 
 <body>
 
- <div id="nav-placeholder"></div>
+  <div id="nav-placeholder"></div>
 
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <h1>Professional Penetration Testing for Businesses in Ireland</h1>
-      <p>
-        I help businesses identify and fix security weaknesses before attackers can exploit them — 
-        through real-world, ethical hacking engagements and practical, prioritized guidance.
-      </p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Pentesting that keeps your clients, insurers & auditors off your back.</h1>
+        <p>
+          I run scoped, legal penetration tests for small and mid-size businesses in Ireland so you can
+          prove you take security seriously — to clients, regulators and insurers — before an attacker
+          forces the issue.
+        </p>
 
-      <ul class="hero-bullets">
-        <li>End-to-end offensive security: web, network, APIs, and social engineering.</li>
-        <li>Clear, actionable reports written for both technical and non-technical teams.</li>
-        <li>Backed by real lab work, AI-powered tooling, and industry certifications.</li>
-      </ul>
+        <ul class="hero-bullets">
+          <li>Real-world offensive testing across web apps, APIs, networks and people.</li>
+          <li>Clear, prioritized reports written for both engineers and business stakeholders.</li>
+          <li>Backed by hands-on lab work, AI-assisted tooling and recognized certifications.</li>
+        </ul>
 
-      <div class="hero-actions">
-        <a href="services.html" class="hero-btn primary">View Services</a>
-        <a href="contact.html" class="hero-btn secondary">Request an Assessment</a>
+        <div class="hero-actions">
+          <a href="book-a-pentest.html" class="hero-btn primary">Book a discovery call</a>
+          <a href="services.html" class="hero-btn secondary">View services & pricing</a>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <h3>Most booked: Network & Infrastructure Pentest</h3>
+        <p>
+          For companies that want to know exactly what their internet-facing systems expose, and how far
+          an attacker could realistically push if they got a foothold.
+        </p>
+        <ul>
+          <li>Scoped external and internal testing in agreed ranges</li>
+          <li>Discovery of exposed services, weak configs and default setups</li>
+          <li>Identification of outdated and vulnerable software</li>
+          <li>Remediation roadmap prioritized by business impact</li>
+        </ul>
+        <p style="margin-top:0.5rem; font-size:0.9rem;">
+          Typical range: from single-site checks for small teams to multi-host reviews for growing businesses.
+        </p>
       </div>
     </div>
+  </section>
 
-    <div class="hero-panel">
-      <h3>Most requested: Network & Infrastructure Testing</h3>
+  <!-- CHECKLIST CTA / ENTRY POINT -->
+  <section class="section checklist-cta">
+    <h2>Not sure if you’re “secure enough” yet?</h2>
+    <p>
+      Start with a simple self-check. The free 2025 Small Business Cybersecurity Checklist helps you see,
+      in one page, whether you’re probably fine for now — or whether you should seriously consider a
+      pentest in the next 3–6 months.
+    </p>
+
+    <a href="Checklist/cybersecurity_checklist.pdf" class="hero-btn primary" target="_blank">
+      Download Checklist (PDF)
+    </a>
+
+    <p style="margin-top:0.75rem; font-size:0.9rem; max-width:640px; margin-left:auto; margin-right:auto;">
+      You can use it internally, or bring it to a call with me and we’ll turn the answers into a scoped,
+      fixed-price engagement.
+    </p>
+  </section>
+
+  <!-- WHO I’M A GOOD FIT FOR -->
+  <section class="section">
+    <h2>Who I’m a good fit for</h2>
+
+    <div class="card">
       <p>
-        Understand exactly what your external and internal network exposes and how an attacker 
-        might move through it.
+        I’m most useful when you’re big enough that security actually matters — but not big enough to have
+        a full-time security team.
       </p>
       <ul>
-        <li>Scoped internal & external testing</li>
-        <li>Identification of exposed services</li>
-        <li>Weak configs & outdated software highlighted</li>
-        <li>Prioritized remediation roadmap</li>
+        <li>5–200 person companies based in Ireland or serving Irish customers.</li>
+        <li>At least one internet-facing app, client portal, booking system or internal VPN.</li>
+        <li>Clients, partners, insurers or auditors asking “how do you handle security?”</li>
+      </ul>
+      <p style="margin-top:0.5rem; font-size:0.9rem;">
+        If that sounds like you, you don’t need a 12-person red team. You need one person who will go
+        deep, document everything, and actually help you close the gaps.
+      </p>
+    </div>
+  </section>
+
+  <!-- CORE SERVICES -->
+  <section class="section">
+    <h2>Core Services</h2>
+
+    <div class="card">
+      <h3>Web Application Pentesting</h3>
+      <p>
+        For anything your customers or staff log into — client portals, booking systems, small SaaS tools,
+        admin panels.
+      </p>
+      <p>
+        I look for broken access control, injection, session issues and business logic flaws that automated
+        scanners consistently miss.
+      </p>
+      <p style="font-size:0.9rem; margin-top:0.4rem;">
+        Typical outcome: a clear list of exploitable issues, proof of impact, and concrete changes your
+        developers can action without guesswork.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Network & Infrastructure Testing</h3>
+      <p>
+        External and internal testing to answer one simple question: “If someone targets us, what can they
+        realistically do from the outside, and what happens if they get in?”
+      </p>
+      <p>
+        I map exposed services, weak configurations, legacy systems and lateral movement paths, then
+        prioritize which ones you should tackle first.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Social Engineering & Phishing Simulations</h3>
+      <p>
+        People are still the easiest way in. I run controlled, authorized phishing and awareness campaigns
+        so you can measure human risk without shaming anyone.
+      </p>
+      <p style="font-size:0.9rem; margin-top:0.4rem;">
+        You get statistics, anonymized examples, and concrete training themes instead of vague “users need
+        more awareness” slides.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Security Consultation & Reporting</h3>
+      <p>
+        The value of a pentest is in what you do afterwards. Your deliverables are built to be read by both
+        technical teams and decision makers.
+      </p>
+      <ul>
+        <li>Executive summary in plain language for management and clients.</li>
+        <li>Technical findings with evidence, impact and remediation steps.</li>
+        <li>Optional follow-up sessions to walk through fixes and retest changes.</li>
       </ul>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CHECKLIST CTA -->
-<section class="section checklist-cta">
-  <h2>Not sure how secure your business is?</h2>
-  <p>
-    Download the free 2025 Small Business Cybersecurity Checklist — a simple,
-    one-page guide that lets you quickly evaluate your company’s real security posture.
-  </p>
+  <!-- LIGHT PRICING / EXPECTATIONS -->
+  <section class="section">
+    <h2>What does a typical engagement cost?</h2>
 
-  <a href="Checklist/cybersecurity_checklist.pdf" class="hero-btn primary" target="_blank">
-    Download Checklist (PDF)
-  </a>
-</section>
+    <div class="card">
+      <p>
+        I don’t publish a rigid price list because scope, complexity and risk appetite differ. But you should
+        have a rough idea of the ballpark before you reach out.
+      </p>
+      <ul>
+        <li>Smaller single-site or focused web app tests often start around <strong>€350–€900</strong>.</li>
+        <li>More complex apps, APIs or network scopes typically fall in the <strong>€900–€2,000+</strong> range.</li>
+      </ul>
+      <p style="margin-top:0.5rem; font-size:0.9rem;">
+        You’ll always receive a fixed-price quote and written scope of work before anything starts. No
+        surprise bills, no hourly burn.
+      </p>
+      <p style="margin-top:0.25rem; font-size:0.9rem;">
+        For exact numbers, the fastest path is a short call:
+        <a href="book-a-pentest.html">book a discovery call</a> and we’ll scope it properly.
+      </p>
+    </div>
+  </section>
 
-<section class="section">
-  <h2>Core Services</h2>
+  <!-- HOW A TYPICAL PENTEST ENGAGEMENT WORKS -->
+  <section class="section">
+    <h2>What working together actually looks like</h2>
 
-  <div class="card">
-    <h3>Web Application Pentesting</h3>
-    <p>Deep OWASP-based assessments targeting logic flaws, injection, access control issues, and more.</p>
-  </div>
+    <div class="card">
+      <ol style="padding-left:1.2rem;">
+        <li><strong>Short discovery call</strong> — 20–30 minutes to understand your environment, drivers and deadlines.</li>
+        <li><strong>Written proposal</strong> — clear scope, methods, timelines and fixed pricing. You can share it with internal stakeholders or clients.</li>
+        <li><strong>Legal & logistics</strong> — Scope of Work, Rules of Engagement and Authorization to Test are signed by an authorized party.</li>
+        <li><strong>Testing window</strong> — agreed dates and intensity; I keep you informed about any high-impact findings as they surface.</li>
+        <li><strong>Report & debrief</strong> — you get a full report plus an optional call to walk through findings and next steps.</li>
+      </ol>
+      <p style="margin-top:0.5rem; font-size:0.9rem;">
+        The goal is simple: no black-box mystery, no drama — just a realistic view of your risk and a path
+        to reduce it.
+      </p>
+    </div>
+  </section>
 
-  <div class="card">
-    <h3>Network & Infrastructure Testing</h3>
-    <p>Internal and external testing to identify weaknesses across servers, services, and network segments.</p>
-  </div>
-
-  <div class="card">
-    <h3>Social Engineering Simulations</h3>
-    <p>Safe, authorized phishing and awareness testing to measure human risk without causing harm.</p>
-  </div>
-
-  <div class="card">
-    <h3>Security Consultation & Reporting</h3>
-    <p>Clear deliverables designed for both technical teams and business stakeholders.</p>
-  </div>
-</section>
-
-<!-- CLEAN INTERNAL-LINK SEO BLOCK -->
-<section class="section">
-  <div class="card">
-    <p style="text-align:center; font-size:0.95rem; color:var(--muted);">
-      Explore more:
-      <a href="services.html">Penetration Testing Services</a> ·
-      <a href="book-a-pentest.html">Book a Penetration Test</a> ·
-      <a href="portfolio.html">Pentest Portfolio</a>
-    </p>
-  </div>
-</section>
+  <!-- CLEAN INTERNAL-LINK SEO BLOCK -->
+  <section class="section">
+    <div class="card">
+      <p style="text-align:center; font-size:0.95rem; color:var(--muted);">
+        Explore more:
+        <a href="services.html">Penetration Testing Services</a> ·
+        <a href="book-a-pentest.html">Book a Penetration Test</a> ·
+        <a href="portfolio.html">Pentest Portfolio</a>
+      </p>
+    </div>
+  </section>
   
-<!-- ABOUT ME SECTION -->
-<section class="section">
-  <h2>About Me & How I Work</h2>
+  <!-- ABOUT ME SECTION -->
+  <section class="section">
+    <h2>Why trust me with breaking your systems on purpose?</h2>
 
-  <div class="card">
-    <h3>From Labs to Realistic Attack & Defense Scenarios</h3>
-    <p>
-      I don’t just read about security — I actively build and break things in controlled environments.
-      I’ve completed full end-to-end pentest scenarios, including realistic attack paths, privilege escalation, and 
-      lateral movement, as well as defensive analysis scenarios where the focus is on understanding what happened 
-      and how to respond.
-    </p>
-    <p>
-      I’ve also worked through malware analysis scenarios, focusing on how malicious tooling behaves, 
-      how it installs persistence, and what artifacts it leaves behind for defenders to detect.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>AI-Driven Security Tools I’ve Built</h3>
-    <p>
-      To push things further, I work on using AI and automation to support security teams:
-    </p>
-    <ul>
-      <li>
-        <strong>AI Phishing Analyzer</strong> — Integrates with authorized mail accounts and analyzes incoming email.
-      </li>
-      <li>
-        <strong>AI Vulnerability Analyzer</strong> — Discovers open services and maps them to known public CVEs.
-      </li>
-    </ul>
-    <p>
-      These projects help defenders focus on the highest risks.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>Certifications & Continuous Learning</h3>
-    <p>
-      I back up my hands-on work with structured learning and certifications, including:
-    </p>
-    <ul>
-      <li>eJPT(eLearnSecurity Junior Penetration Tester)</li>
-      <li>GRCP(Governance, Risk and Compliance Professional)</li>
-      <li>CCSK(Cloud Certified Security Knowledge)</li>
-      <li>CISCO Verified Offensive Security Ethical Hacker</li>
-      <li>Fortinet Cybersecurity Associate</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h3>Why I Do This</h3>
-    <p>
-      My motivation is simple: I like understanding how things break, and helping people fix them.
-    </p>
-  </div>
-</section>
-
-<section class="section">
-  <h2>Documentation & Legal Coverage</h2>
-  <p>
-    Every engagement includes all required documentation and legal approvals.
-  </p>
-
-  <div class="legal-grid">
-
-    <div class="legal-card">
-      <h3>Scope of Work (SoW)</h3>
-      <ul>
-        <li>-Defines permitted targets</li>
-        <li>-Outlines testing boundaries</li>
-        <li>-Includes timelines & goals</li>
-      </ul>
+    <div class="card">
+      <h3>From home lab work to realistic attack & defense scenarios</h3>
+      <p>
+        I don’t treat pentesting as a checklist exercise. I run full attack chains in labs: gaining an initial
+        foothold, escalating privileges, moving laterally and mapping out complete kill chains — then
+        switching hats and analysing how it all shows up in logs and monitoring.
+      </p>
+      <p>
+        I’ve also worked through malware and post-exploitation tooling, focusing on how it persists,
+        how it evades basic controls, and which artifacts defenders can realistically rely on.
+      </p>
+      <p style="font-size:0.9rem;">
+        That background means your test isn’t just “nmap + scanner + PDF”. It’s modeled on how real
+        attacks unfold.
+      </p>
     </div>
 
-    <div class="legal-card">
-      <h3>Rules of Engagement (RoE)</h3>
+    <div class="card">
+      <h3>AI-assisted tools I’ve built to support security work</h3>
+      <p>
+        To go beyond manual checks, I build my own tools and automations to speed up analysis and
+        surface the highest-risk areas first:
+      </p>
       <ul>
-        <li>-Allowed techniques & tools</li>
-        <li>-Operational safety guidelines</li>
-        <li>-Emergency contact procedures</li>
+        <li>
+          <strong>AI Phishing Analyzer</strong> — integrates with authorized mail accounts to classify and
+          explain suspicious emails, helping teams understand why something is risky.
+        </li>
+        <li>
+          <strong>AI Vulnerability Analyzer</strong> — combines service discovery with public CVEs to spotlight
+          the most dangerous exposures, not just the longest list.
+        </li>
       </ul>
+      <p style="font-size:0.9rem; margin-top:0.4rem;">
+        These aren’t gimmicks. They help me spend more time validating impact and less time copying
+        and pasting scanner output.
+      </p>
     </div>
 
-    <div class="legal-card">
-      <h3>Authorization to Test</h3>
+    <div class="card">
+      <h3>Certifications & structured learning</h3>
+      <p>
+        I back up practical work with structured paths and external validation, including:
+      </p>
       <ul>
-        <li>-Formal approval</li>
-        <li>-Signed by authorized party</li>
-        <li>-Liability protections</li>
+        <li>eJPT (eLearnSecurity Junior Penetration Tester)</li>
+        <li>GRCP (Governance, Risk and Compliance Professional)</li>
+        <li>CCSK (Cloud Certified Security Knowledge)</li>
+        <li>CISCO Verified Offensive Security Ethical Hacker</li>
+        <li>Fortinet Cybersecurity Associate</li>
       </ul>
+      <p style="font-size:0.9rem; margin-top:0.4rem;">
+        These don’t replace results, but they show I’m invested in both offensive techniques and the
+        governance/compliance world your business actually operates in.
+      </p>
     </div>
 
-    <div class="legal-card">
-      <h3>Final Reporting Package</h3>
-      <ul>
-        <li>-Executive summary</li>
-        <li>-Technical findings</li>
-        <li>-Remediation guidance</li>
-      </ul>
+    <div class="card">
+      <h3>Why I do this</h3>
+      <p>
+        I’ve always been more interested in how systems fail than how they’re supposed to work. Pentesting
+        is the clean version of that obsession: break things in a controlled, legal way so you can fix them
+        before someone else breaks them for real.
+      </p>
+      <p style="font-size:0.9rem; margin-top:0.4rem;">
+        If you want a rubber-stamped checkbox report, I’m not your guy. If you want someone to really try
+        to get in — and then help you close those doors — that’s where I fit.
+      </p>
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- DOCUMENTATION & LEGAL COVERAGE -->
+  <section class="section">
+    <h2>Documentation & legal coverage you can show to anyone</h2>
+    <p>
+      Every engagement comes with the paperwork and structure you need to keep management, clients and
+      insurers comfortable.
+    </p>
+
+    <div class="legal-grid">
+      <div class="legal-card">
+        <h3>Scope of Work (SoW)</h3>
+        <ul>
+          <li>Defines exactly which systems, apps and ranges are in scope.</li>
+          <li>Outlines what is out of scope to reduce surprises.</li>
+          <li>Documents timelines, objectives and expected deliverables.</li>
+        </ul>
+      </div>
+
+      <div class="legal-card">
+        <h3>Rules of Engagement (RoE)</h3>
+        <ul>
+          <li>Details allowed techniques, tools and intensity levels.</li>
+          <li>Sets operational safety and change control expectations.</li>
+          <li>Includes emergency contacts and escalation paths.</li>
+        </ul>
+      </div>
+
+      <div class="legal-card">
+        <h3>Authorization to Test</h3>
+        <ul>
+          <li>Formal written approval from an authorized decision maker.</li>
+          <li>Clarifies that testing is intentional, agreed and legal.</li>
+          <li>Helps protect you if questions are ever raised later.</li>
+        </ul>
+      </div>
+
+      <div class="legal-card">
+        <h3>Final Reporting Package</h3>
+        <ul>
+          <li>Executive summary for management and external stakeholders.</li>
+          <li>Technical findings with evidence, risk rating and remediation steps.</li>
+          <li>Optional remediation retest and updated report once fixes are in place.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
   
- <div id="footer-placeholder"></div>
+  <div id="footer-placeholder"></div>
 
-
-
-<script>
-  const menuToggle = document.getElementById('menu-toggle');
-  const navLinks = document.getElementById('nav-links');
-  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-</script>
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
 
 </body>
 </html>
