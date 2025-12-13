@@ -363,6 +363,77 @@
     const navLinks = document.getElementById('nav-links');
     menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
   </script>
+<!-- Subscriptions Modal (EchoPentest) -->
+<div id="epSubsModal" class="ep-modal" aria-hidden="true">
+  <div class="ep-modal__backdrop" data-ep-close></div>
+
+  <div class="ep-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="epSubsTitle">
+    <button class="ep-modal__close" aria-label="Close" data-ep-close>&times;</button>
+
+    <div class="ep-modal__header">
+      <div class="ep-modal__badge">Security Subscriptions</div>
+      <h2 id="epSubsTitle" class="ep-modal__title">Pick a plan. Stay protected.</h2>
+      <p class="ep-modal__text">Clear deliverables. No long contracts. Cancel anytime.</p>
+    </div>
+
+    <div class="ep-modal__grid">
+      <!-- Essential Care -->
+      <div class="ep-plan">
+        <h3 class="ep-plan__name">Essential Care</h3>
+        <div class="ep-plan__price">From €149 <span>/ month</span></div>
+
+        <ul class="ep-plan__list">
+          <li>Monthly external vulnerability scan of agreed scope</li>
+          <li>Simple, non-technical “traffic light” risk summary</li>
+          <li>Email support for clarification on findings</li>
+        </ul>
+
+        <p class="ep-plan__ideal"><strong>Ideal for:</strong> Small websites and early-stage businesses.</p>
+        <a class="ep-btn ep-btn--ghost" href="/contact.html?plan=essential-care">Ask about Essential Care</a>
+      </div>
+
+      <!-- Growth Care (featured) -->
+      <div class="ep-plan ep-plan--featured">
+        <div class="ep-plan__pill">Most Popular</div>
+
+        <h3 class="ep-plan__name">Growth Care</h3>
+        <div class="ep-plan__price">From €249 <span>/ month</span></div>
+
+        <ul class="ep-plan__list">
+          <li>Monthly external scan + quarterly deeper review</li>
+          <li>Short call or recorded walkthrough of key issues</li>
+          <li>Re-testing of high-risk fixes</li>
+          <li>Guidance on what to fix first based on risk</li>
+        </ul>
+
+        <p class="ep-plan__ideal"><strong>Ideal for:</strong> Growing teams with more than one public-facing system.</p>
+        <a class="ep-btn ep-btn--primary" href="/contact.html?plan=growth-care">Ask about Growth Care</a>
+      </div>
+
+      <!-- Full Security Partner -->
+      <div class="ep-plan">
+        <h3 class="ep-plan__name">Full Security Partner</h3>
+        <div class="ep-plan__price">From €449 <span>/ month</span></div>
+
+        <ul class="ep-plan__list">
+          <li>Tailored scan frequency based on your environment</li>
+          <li>Priority scheduling for full pentests and re-tests</li>
+          <li>Advisory support if “something looks suspicious”</li>
+          <li>Help preparing evidence for insurers or compliance questions</li>
+        </ul>
+
+        <p class="ep-plan__ideal"><strong>Ideal for:</strong> Businesses that want a long-term technical security partner.</p>
+        <a class="ep-btn ep-btn--ghost" href="/contact.html?plan=full-security-partner">Discuss a full partnership</a>
+      </div>
+    </div>
+
+    <div class="ep-modal__footer">
+      <a class="ep-link" href="/pricing.html">See full pricing</a>
+      <span class="ep-dot">•</span>
+      <a class="ep-link" href="/scanner.html">Run a free scan first</a>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
