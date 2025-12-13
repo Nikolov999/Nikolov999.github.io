@@ -38,78 +38,58 @@ document.addEventListener("DOMContentLoaded", () => {
   injectFragment("nav-placeholder", "nav.html");
   injectFragment("footer-placeholder", "footer.html");
 });
-(() => {
+document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("epSubsModal");
   if (!modal) return;
 
-  const KEY = "ep_subs_modal_dismissed_v2";
-
-  // Don’t show on pages where user is already deciding
-  const path = (location.pathname || "").toLowerCase();
+  const KEY = "ep_subs_modal_dismissed_v3";
+  const path = location.pathname.toLowerCase();
   if (path.includes("pricing") || path.includes("contact")) return;
-
-  // Show once per browser
-  if (localStorage.getItem(KEY) === "1") return;
+  if (localStorage.getItem(KEY)) return;
 
   let opened = false;
 
   const open = () => {
     if (opened) return;
     opened = true;
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-    cleanupTriggers();
+    modal.setAttribute("aria-hidden","false");
+    document.body.style.overflow="hidden";
+    cleanup();
   };
 
   const close = () => {
-    modal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-    localStorage.setItem(KEY, "1");
-    cleanupTriggers();
+    modal.setAttribute("aria-hidden","true");
+    document.body.style.overflow="";
+    localStorage.setItem(KEY,"1");
+    cleanup();
   };
 
-  // Close interactions
-  modal.addEventListener("click", (e) => {
+  modal.addEventListener("click", e => {
     if (e.target.matches("[data-ep-close]")) close();
   });
 
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") close();
+  window.addEventListener("keydown", e => {
+    if (e.key === "Escape") close();
   });
 
-  // --- Triggers (scroll / time / exit intent) ---
+  // Triggers
   const onScroll = () => {
-    const doc = document.documentElement;
-    const scrollTop = doc.scrollTop || document.body.scrollTop;
-    const scrollHeight = doc.scrollHeight || document.body.scrollHeight;
-    const clientHeight = doc.clientHeight || window.innerHeight;
-
-    const maxScrollable = Math.max(1, scrollHeight - clientHeight);
-    const progress = scrollTop / maxScrollable;
-
-    if (progress >= 0.40) open();
+    const d = document.documentElement;
+    if ((d.scrollTop / (d.scrollHeight - d.clientHeight)) > 0.4) open();
   };
 
-  // Exit intent (desktop): when mouse leaves top of viewport
-  const onMouseOut = (e) => {
-    // Only consider real exit intent, not moving between elements
-    if (e.relatedTarget !== null) return;
-    if (typeof e.clientY === "number" && e.clientY <= 0) open();
+  const onExit = e => {
+    if (e.clientY <= 0) open();
   };
 
-  // Time trigger: 15 seconds
-  const timeTimer = setTimeout(() => open(), 15000);
+  const timer = setTimeout(open, 15000);
 
-  const cleanupTriggers = () => {
+  const cleanup = () => {
     window.removeEventListener("scroll", onScroll);
-    document.removeEventListener("mouseout", onMouseOut);
-    clearTimeout(timeTimer);
+    document.removeEventListener("mouseout", onExit);
+    clearTimeout(timer);
   };
 
-  // Attach triggers
-  window.addEventListener("scroll", onScroll, { passive: true });
-  document.addEventListener("mouseout", onMouseOut);
-
-  // Optional: if user is already deep in page when loaded
-  setTimeout(onScroll, 600);
-})();
+  window.addEventListener("scroll", onScroll, { passive:true });
+  document.addEventListener("mouseout", onExit);
+});
