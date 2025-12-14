@@ -1,10 +1,10 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services — ECHO Pentest</title>
-  <meta name="description" content="Detailed penetration testing services by ECHO Pentest: web application pentests, API security reviews, network and infrastructure testing, phishing simulations, red teaming, and ongoing security care plans for small and mid-size businesses." />
+  <meta name="description" content="Penetration testing services by ECHO Pentest: web, API, and network testing plus ongoing security care plans for small and mid-size businesses in Ireland. Clear reports, prioritized fixes, optional retesting." />
   <link rel="canonical" href="https://www.echopentest.com/services.html" />
 
   <link rel="icon" type="image/png" href="Logo/Logo.png">
@@ -18,6 +18,7 @@
     gtag('js', new Date());
     gtag('config', 'G-NPTKWGC3N3');
   </script>
+
   <script src="main.js" defer></script>
 </head>
 
@@ -27,22 +28,37 @@
 
   <main>
 
+    <!-- HERO -->
     <section class="section">
       <header class="section-header">
-        <h1>Penetration Testing Services for Small &amp; Mid-Size Businesses</h1>
-        <h2>Web, API, Network &amp; Human Security Testing — With Clear, Practical Output</h2>
+        <h1>Penetration Testing That Finds What Attackers Can Actually Exploit</h1>
+        <h2>Clear priorities, real proof, and practical fixes — built for small &amp; mid-size businesses.</h2>
       </header>
 
       <p>
-        Every organization is different. Some need a focused test of a single application, others want a deeper look
-        at their network or people. Below is a quick overview and a simple “scope helper” to point you toward the
-        service that usually fits best.
+        Most small businesses don’t get “targeted”. They get hit by automated scanning, reused exploits, weak credentials,
+        and simple misconfigurations. My job is to show you what’s exposed, what matters most, and what to fix first —
+        without burying you in jargon.
       </p>
 
-      <!-- Simple scope wizard -->
-      <div class="card">
+      <div class="card" style="margin-top:16px;">
+        <h3>Fastest way to start</h3>
+        <p style="margin-bottom:10px;">
+          If you’re unsure what you need, start with a quick check. You’ll get a clear direction in minutes — not weeks.
+        </p>
+        <p style="margin-top:10px;">
+          <a href="scanner.html" class="hero-btn" style="margin-right:8px;">Run the Free Scanner</a>
+          <a href="book-a-pentest.html" class="hero-btn secondary">Book a 15-min Scope Call</a>
+        </p>
+        <p style="font-size:0.95rem; opacity:0.9; margin-top:10px;">
+          No long contracts. No “mystery” deliverables. You’ll know exactly what you’re getting before anything starts.
+        </p>
+      </div>
+
+      <!-- Scope wizard -->
+      <div class="card" style="margin-top:18px;">
         <h3>Not sure where to start?</h3>
-        <p>Pick the option that sounds closest to what you’re worried about:</p>
+        <p>Pick what sounds closest to your situation. I’ll recommend the best starting point and what you’ll get.</p>
 
         <form id="scope-form">
           <div class="form-group">
@@ -66,142 +82,178 @@
           <div class="form-group">
             <label>
               <input type="radio" name="scope" value="people">
-              I want to understand how my <strong>people would respond</strong> to phishing / social engineering.
+              I want to understand how my <strong>people respond</strong> to phishing / social engineering.
             </label>
           </div>
 
           <button type="submit" class="btn-primary">Show recommended service</button>
-          <div id="scope-result" style="margin-top:10px;font-size:0.95rem;"></div>
+          <div id="scope-result" style="margin-top:12px;font-size:0.98rem;"></div>
         </form>
       </div>
 
-      <!-- Core services laid out as cards (responsive via CSS grid/flex in style.css) -->
+      <!-- Trust strip -->
+      <div class="card" style="margin-top:18px;">
+        <h3>What you get (every time)</h3>
+        <ul>
+          <li><strong>Evidence:</strong> clear proof-of-issue with impact explained</li>
+          <li><strong>Priorities:</strong> a short “fix first” list (not a long wish-list)</li>
+          <li><strong>Reports:</strong> executive-friendly summary + technical detail where needed</li>
+          <li><strong>Optional retest:</strong> verify fixes actually worked (not “trust me bro”)</li>
+        </ul>
+        <p style="margin-top:10px;">
+          <a href="book-a-pentest.html" class="hero-btn secondary">Request a Proposal</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Core services -->
+    <section class="section">
+      <header class="section-header">
+        <h2>Core Services</h2>
+        <p>
+          Choose a focused test when you have a specific target, or use a care plan if you want ongoing visibility.
+          Most SMBs get the best value by starting focused, then moving into a monthly plan.
+        </p>
+      </header>
+
       <div class="services-grid">
         <div class="card">
           <h3>Web Application Pentest</h3>
           <p>
-            Comprehensive testing of web apps using techniques inspired by the OWASP Testing Guide. I look for:
+            For websites, client portals, dashboards, and web apps. This is where most real-world breaches begin.
           </p>
           <ul>
-            <li>Broken authentication and session handling</li>
-            <li>Access control failures between roles and tenants</li>
-            <li>Input validation and injection flaws</li>
-            <li>Insecure file upload &amp; data exposure issues</li>
-            <li>Business logic abuse that automated scanners often miss</li>
+            <li>Authentication &amp; session weaknesses</li>
+            <li>Access control failures between roles/tenants</li>
+            <li>Injection, input validation, and data exposure</li>
+            <li>File upload and unsafe endpoints</li>
+            <li>Business logic abuse scanners miss</li>
           </ul>
           <p>
-            You receive a report mapped to risk, with clear examples, impact, and remediation steps your developers can action.
+            <strong>Outcome:</strong> a prioritized fix list + evidence so your devs can act immediately.
           </p>
-          <p><strong>Typical range:</strong> €350 – €900 for small sites, €900 – €1,800 for larger or more complex applications.</p>
+          <p><strong>Typical range:</strong> €350 – €900 (small sites), €900 – €1,800 (larger/complex).</p>
           <p style="margin-top:10px;">
-            <a href="service-web-app.html" class="hero-btn secondary">Learn more</a>
+            <a href="service-web-app.html" class="hero-btn secondary" style="margin-right:8px;">View details</a>
+            <a href="book-a-pentest.html" class="hero-btn secondary">Request scope</a>
           </p>
         </div>
 
         <div class="card">
           <h3>API Security Assessment</h3>
           <p>
-            APIs are often the real backbone of modern apps — and a favorite target.
-            I assess your APIs for:
+            APIs power mobile apps, integrations, and partner access — and they’re often wide open without anyone noticing.
           </p>
           <ul>
-            <li>Broken object-level and function-level authorization</li>
-            <li>Insecure authentication and token handling</li>
-            <li>Overly permissive responses and data leakage</li>
-            <li>Rate limiting, brute force, and enumeration weaknesses</li>
+            <li>Broken object/function authorization</li>
+            <li>Token handling, auth flows, and identity gaps</li>
+            <li>Data leakage and overly permissive responses</li>
+            <li>Rate limiting, brute force, and enumeration risks</li>
           </ul>
-          <p><strong>Typical range:</strong> €450 – €1,200 depending on the number of endpoints and authentication complexity.</p>
+          <p><strong>Outcome:</strong> blocked abuse paths + clear remediation steps by endpoint area.</p>
+          <p><strong>Typical range:</strong> €450 – €1,200 depending on endpoints and auth complexity.</p>
           <p style="margin-top:10px;">
-            <a href="service-api-security.html" class="hero-btn secondary">Learn more</a>
+            <a href="service-api-security.html" class="hero-btn secondary" style="margin-right:8px;">View details</a>
+            <a href="book-a-pentest.html" class="hero-btn secondary">Request scope</a>
           </p>
         </div>
 
         <div class="card">
           <h3>Network &amp; Infrastructure Testing</h3>
           <p>
-            I simulate how an attacker would explore your network and services, within a clearly defined scope.
-            This includes:
+            For external exposure, server misconfigurations, remote access, and internal lateral movement risks.
           </p>
           <ul>
-            <li>Host and service discovery within the agreed ranges</li>
-            <li>Service misconfigurations and default credentials</li>
-            <li>Unnecessary exposure of services and management interfaces</li>
-            <li>Opportunities for lateral movement after an initial foothold</li>
+            <li>Host/service discovery in agreed ranges</li>
+            <li>Weak/default credentials and misconfigurations</li>
+            <li>Unnecessary exposure of admin/management interfaces</li>
+            <li>Attack paths after first foothold</li>
           </ul>
-          <p><strong>Typical range:</strong> €500 – €1,500 depending on the number of hosts and internal vs. external scope.</p>
+          <p><strong>Outcome:</strong> reduce blast radius and remove easy entry points.</p>
+          <p><strong>Typical range:</strong> €500 – €1,500 depending on hosts and internal vs external scope.</p>
           <p style="margin-top:10px;">
-            <a href="service-network-infrastructure.html" class="hero-btn secondary">Learn more</a>
+            <a href="service-network-infrastructure.html" class="hero-btn secondary" style="margin-right:8px;">View details</a>
+            <a href="book-a-pentest.html" class="hero-btn secondary">Request scope</a>
           </p>
         </div>
 
         <div class="card">
           <h3>Social Engineering &amp; Awareness Testing</h3>
           <p>
-            Technical controls can be strong, but people are always in the loop.
-            I run controlled, authorized social engineering and phishing simulations to:
+            Security isn’t just technical. A single click or reused password can undo everything else.
+            These tests are always authorized, controlled, and designed to improve, not embarrass.
           </p>
           <ul>
-            <li>Measure how staff respond to realistic phishing attempts</li>
-            <li>Identify gaps in training and internal processes</li>
-            <li>Provide feedback that improves awareness without blame</li>
+            <li>Phishing simulations with safe landing pages</li>
+            <li>Metrics to identify training gaps</li>
+            <li>Actionable recommendations without blame</li>
           </ul>
-          <p><strong>Typical range:</strong> €250 – €750 for phishing simulations, €750 – €1,400 for multi-step social engineering scenarios.</p>
+          <p><strong>Typical range:</strong> €250 – €750 (phishing), €750 – €1,400 (multi-step scenarios).</p>
           <p style="margin-top:10px;">
-            <a href="service-social-engineering.html" class="hero-btn secondary">Learn more</a>
+            <a href="service-social-engineering.html" class="hero-btn secondary" style="margin-right:8px;">View details</a>
+            <a href="book-a-pentest.html" class="hero-btn secondary">Request scope</a>
           </p>
         </div>
 
         <div class="card">
-          <h3>Red Team-Style &amp; Scenario-Based Engagements</h3>
+          <h3>Scenario-Based / Red Team-Style Engagements</h3>
           <p>
-            For organizations that want to go further, I design scenario-based engagements that:
+            For businesses that want impact demonstrated realistically: objectives, attack paths, and true business risk.
           </p>
           <ul>
-            <li>Focus on real business objectives (e.g. accessing a specific system or data)</li>
-            <li>Chain multiple weaknesses together to show true impact</li>
-            <li>Help you test detection, incident response, and playbooks</li>
+            <li>Objective-driven testing (not checkbox testing)</li>
+            <li>Chained weaknesses to show real impact</li>
+            <li>Optional detection/response validation</li>
           </ul>
-          <p><strong>Typical range:</strong> €1,200 – €3,500 depending on objectives, targets, and level of stealth required.</p>
+          <p><strong>Typical range:</strong> €1,200 – €3,500 depending on objectives and scope.</p>
           <p style="margin-top:10px;">
-            <a href="service-red-team.html" class="hero-btn secondary">Learn more</a>
+            <a href="service-red-team.html" class="hero-btn secondary" style="margin-right:8px;">View details</a>
+            <a href="book-a-pentest.html" class="hero-btn secondary">Request scope</a>
           </p>
         </div>
 
         <div class="card">
-          <h3>Reporting, Debriefs &amp; Ongoing Support</h3>
+          <h3>Reporting, Debriefs &amp; Fix Verification</h3>
           <p>
-            Every engagement ends with:
+            Testing is pointless if it doesn’t translate into action. You get a clear roadmap and support to execute it.
           </p>
           <ul>
-            <li>A clear, prioritized report for technical and non-technical audiences</li>
-            <li>Walkthroughs of critical findings and attack paths</li>
-            <li>Remediation guidance and optional follow-up to verify fixes</li>
+            <li>Prioritized findings (business + technical view)</li>
+            <li>Walkthrough of critical issues &amp; attack paths</li>
+            <li>Optional re-test to confirm fixes</li>
           </ul>
-          <p><strong>Included with every engagement.</strong> Optional remediation re-testing typically ranges from €150 – €450 depending on scope.</p>
+          <p><strong>Included with every engagement.</strong> Retesting typically €150 – €450 depending on scope.</p>
           <p style="margin-top:10px;">
-            <a href="service-reporting.html" class="hero-btn secondary">Learn more</a>
+            <a href="service-reporting.html" class="hero-btn secondary" style="margin-right:8px;">View details</a>
+            <a href="book-a-pentest.html" class="hero-btn secondary">Request scope</a>
           </p>
         </div>
       </div>
     </section>
 
-    <!-- New retention engine: Ongoing care plans -->
+    <!-- Retention engine: Care plans -->
     <section class="section ongoing-care-section" id="care-plans">
       <h2>Ongoing Security Care Plans</h2>
       <p>
-        One-off pentests are a great start, but attackers don’t stop scanning your business after a single week.
-        These ongoing security care plans are designed for small and mid-size businesses that want a realistic,
-        affordable way to stay ahead of new vulnerabilities without hiring a full internal security team.
+        One-off pentests are a strong start. But exposure changes weekly: plugins update, staff change, new systems get added.
+        Care plans give you ongoing visibility and a simple, repeatable way to stay ahead — without hiring a full security team.
       </p>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Most businesses should start with Growth Care</h3>
+        <p style="margin-bottom:0;">
+          It’s the best balance of regular scanning, deeper review, and fix prioritization — without enterprise overhead.
+        </p>
+      </div>
 
       <div class="care-plans-grid">
         <article class="card care-plan-card">
           <h3>Essential Care</h3>
           <p class="price">From €149 / month</p>
           <ul>
-            <li>Monthly external vulnerability scan of agreed scope</li>
-            <li>Simple, non-technical “traffic light” risk summary</li>
-            <li>Email support for clarification on findings</li>
+            <li>Monthly external vulnerability scan (agreed scope)</li>
+            <li>Simple “traffic light” risk summary</li>
+            <li>Email support for clarification</li>
           </ul>
           <p class="ideal-for">Ideal for: Small websites and early-stage businesses.</p>
           <p style="margin-top:10px;">
@@ -214,9 +266,9 @@
           <p class="price">From €249 / month</p>
           <ul>
             <li>Monthly external scan + quarterly deeper review</li>
-            <li>Short call or recorded walkthrough of key issues</li>
+            <li>Short call or recorded walkthrough</li>
             <li>Re-testing of high-risk fixes</li>
-            <li>Guidance on what to fix first based on risk</li>
+            <li>Clear “fix first” guidance based on risk</li>
           </ul>
           <p class="ideal-for">Ideal for: Growing teams with more than one public-facing system.</p>
           <p style="margin-top:10px;">
@@ -228,10 +280,10 @@
           <h3>Full Security Partner</h3>
           <p class="price">From €449 / month</p>
           <ul>
-            <li>Tailored scan frequency based on your environment</li>
-            <li>Priority scheduling for full pentests and re-tests</li>
-            <li>Advisory support if “something looks suspicious”</li>
-            <li>Help preparing evidence for insurers or compliance questions</li>
+            <li>Tailored scan frequency (based on your environment)</li>
+            <li>Priority scheduling for pentests and retests</li>
+            <li>Advisory support when something feels off</li>
+            <li>Support for insurers / compliance questions</li>
           </ul>
           <p class="ideal-for">Ideal for: Businesses that want a long-term technical security partner.</p>
           <p style="margin-top:10px;">
@@ -241,56 +293,111 @@
       </div>
 
       <p class="fine-print">
-        All pricing depends on scope and complexity. These ranges are a starting point – you’ll receive a tailored proposal
+        All pricing depends on scope and complexity. These ranges are a starting point — you’ll receive a tailored proposal
         before you commit to anything.
       </p>
     </section>
 
+    <!-- Process / Objection killers -->
+    <section class="section">
+      <h2>How It Works</h2>
+      <div class="services-grid">
+        <div class="card">
+          <h3>1) Define scope (no surprises)</h3>
+          <p>We agree targets, rules, time window, and what “done” looks like. No testing outside written authorization.</p>
+        </div>
+        <div class="card">
+          <h3>2) Test &amp; validate</h3>
+          <p>I validate issues with real evidence — not just scanner output — and focus on what’s actually exploitable.</p>
+        </div>
+        <div class="card">
+          <h3>3) Report &amp; prioritize</h3>
+          <p>You get a clear “fix first” roadmap: what matters now, what matters later, and how to reduce risk quickly.</p>
+        </div>
+        <div class="card">
+          <h3>4) Optional re-test</h3>
+          <p>After fixes, I verify critical items are actually closed. This is where many tests fail — I don’t skip it.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h3>Risk reduction, not fear marketing</h3>
+        <ul>
+          <li>No long-term contracts (care plans can be cancelled)</li>
+          <li>No changes made to your systems without approval</li>
+          <li>Testing only on systems you own or authorize</li>
+          <li>Clear deliverables before the engagement begins</li>
+        </ul>
+        <p style="margin-top:10px;">
+          <a href="book-a-pentest.html" class="hero-btn secondary" style="margin-right:8px;">Book a 15-min Scope Call</a>
+          <a href="scanner.html" class="hero-btn secondary">Run the Free Scanner</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Security in Numbers (tightened) -->
     <section class="section">
       <h2>Security in Numbers</h2>
       <p>
-        Cybersecurity is no longer a “big company only” problem. Automated tools constantly scan the internet, looking for
-        any system that’s exposed or misconfigured — regardless of your size or industry.
+        The internet is constantly scanned. Attackers don’t need to “hate” your business — they only need one exposed service,
+        one weak login, or one unpatched component.
       </p>
 
       <div class="stats-grid">
         <div class="card stat">
           <div class="stat-title">Constant probing</div>
-          <p class="stat-text">
-            Almost every internet-facing service is regularly scanned and probed by automated bots looking for known
-            weaknesses and outdated software.
-          </p>
+          <p class="stat-text">Internet-facing systems are scanned continuously by automated bots and commodity tools.</p>
         </div>
 
         <div class="card stat">
           <div class="stat-title">Human error is common</div>
-          <p class="stat-text">
-            Many real-world breaches start with a simple human mistake — a weak password, a reused credential,
-            or a phishing email that slipped through.
-          </p>
+          <p class="stat-text">Weak passwords, reused credentials, and phishing are still the easiest entry points.</p>
         </div>
 
         <div class="card stat">
           <div class="stat-title">Attackers reuse old bugs</div>
-          <p class="stat-text">
-            Public vulnerabilities (CVEs) are quickly weaponized. Unpatched systems remain attractive targets
-            long after a fix is released.
-          </p>
+          <p class="stat-text">Public vulnerabilities are weaponized fast — unpatched systems stay valuable targets.</p>
         </div>
 
         <div class="card stat">
           <div class="stat-title">Pentesting changes the odds</div>
-          <p class="stat-text">
-            By proactively testing your defenses, you shift from reacting to incidents to preventing them — with a
-            clear list of what to fix first.
-          </p>
+          <p class="stat-text">You shift from guessing and reacting to fixing the highest-risk issues first.</p>
         </div>
       </div>
 
-      <p>
-        The goal of my services is to translate this reality into a practical roadmap: where you’re strong, where you’re weak,
-        and how to improve before an incident forces the issue.
-      </p>
+      <div class="card" style="margin-top:16px;">
+        <h3>Ready for a clear starting point?</h3>
+        <p style="margin-bottom:10px;">
+          If you’re unsure what you need, run the free scan. If you already know what you want tested, book a short scope call.
+        </p>
+        <p style="margin-top:10px;">
+          <a href="scanner.html" class="hero-btn" style="margin-right:8px;">Run the Free Scanner</a>
+          <a href="book-a-pentest.html" class="hero-btn secondary">Book a 15-min Scope Call</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <h2>FAQ</h2>
+      <div class="services-grid">
+        <div class="card">
+          <h3>Will this break my website?</h3>
+          <p>No. Testing is controlled and scoped. I avoid disruptive actions unless explicitly approved.</p>
+        </div>
+        <div class="card">
+          <h3>Do you need credentials?</h3>
+          <p>Sometimes. Black-box testing checks what attackers see; authenticated testing finds deeper issues. We decide based on goals.</p>
+        </div>
+        <div class="card">
+          <h3>How long does it take?</h3>
+          <p>Depends on scope. Small web tests can be quick; larger systems take longer. You’ll get a timeline before we start.</p>
+        </div>
+        <div class="card">
+          <h3>Can you re-test fixes?</h3>
+          <p>Yes. Retesting is available and recommended for critical findings, especially if you need proof for stakeholders.</p>
+        </div>
+      </div>
     </section>
 
   </main>
@@ -307,7 +414,7 @@
       });
     }
 
-    // simple scope wizard
+    // Enhanced scope wizard
     const scopeForm = document.getElementById('scope-form');
     const scopeResult = document.getElementById('scope-result');
 
@@ -316,35 +423,74 @@
         e.preventDefault();
         const choice = scopeForm.scope.value;
 
+        let title = "";
         let text = "";
+        let bullets = [];
         let link = "";
 
         switch (choice) {
           case "web":
-            text = "You’ll probably get the most value from a Web Application Pentest.";
+            title = "Recommended: Web Application Pentest";
+            text = "Best if you have a website, portal, booking system, or web app that handles logins or customer data.";
+            bullets = [
+              "Evidence-based findings (not scanner noise)",
+              "Prioritized fix list: what matters first",
+              "Clear examples and remediation steps"
+            ];
             link = "service-web-app.html";
             break;
+
           case "api":
-            text = "You’ll probably get the most value from an API Security Assessment.";
+            title = "Recommended: API Security Assessment";
+            text = "Best if you expose APIs to mobile apps, partners, third parties, or internal services.";
+            bullets = [
+              "Authorization & token flow testing",
+              "Data leakage & abuse path validation",
+              "Endpoint-level remediation guidance"
+            ];
             link = "service-api-security.html";
             break;
+
           case "network":
-            text = "You’ll probably get the most value from Network & Infrastructure Testing.";
+            title = "Recommended: Network & Infrastructure Testing";
+            text = "Best if you’re unsure what’s exposed externally or want to reduce easy entry points and misconfig risks.";
+            bullets = [
+              "Exposure & misconfiguration analysis",
+              "Credential and access weakness validation",
+              "Lateral movement paths (where applicable)"
+            ];
             link = "service-network-infrastructure.html";
             break;
+
           case "people":
-            text = "You’ll probably get the most value from Social Engineering & Awareness Testing.";
+            title = "Recommended: Social Engineering & Awareness Testing";
+            text = "Best if phishing is a concern or you want real insight into how staff respond — without blame.";
+            bullets = [
+              "Controlled, authorized simulations",
+              "Clear metrics and training gaps",
+              "Action plan to reduce real-world risk"
+            ];
             link = "service-social-engineering.html";
             break;
+
           default:
-            text = "Pick one of the options above to see a recommended starting point.";
+            scopeResult.textContent = "Pick one of the options above to see a recommended starting point.";
+            return;
         }
 
-        if (!choice) {
-          scopeResult.textContent = text;
-        } else {
-          scopeResult.innerHTML = text + ' <a href="' + link + '" class="hero-btn secondary" style="margin-left:8px;">View service</a>';
-        }
+        scopeResult.innerHTML = `
+          <div class="card" style="margin-top:12px;">
+            <h3 style="margin-top:0;">${title}</h3>
+            <p style="margin-bottom:10px;">${text}</p>
+            <ul style="margin-top:0;">
+              ${bullets.map(b => `<li>${b}</li>`).join("")}
+            </ul>
+            <p style="margin-top:10px;">
+              <a href="${link}" class="hero-btn secondary" style="margin-right:8px;">View details</a>
+              <a href="book-a-pentest.html" class="hero-btn">Book a 15-min scope call</a>
+            </p>
+          </div>
+        `;
       });
     }
   </script>
