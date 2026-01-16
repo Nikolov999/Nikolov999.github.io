@@ -1,6 +1,8 @@
 <nav>
   <div class="logo">
-    <img src="Logo/LogoO.png" alt="ECHO Pentest logo">
+    <a href="index.html">
+      <img src="Logo/Logo0.png" alt="EchoPentest Logo" />
+    </a>
   </div>
 
   <div class="menu-toggle" id="menu-toggle">
@@ -10,12 +12,38 @@
   </div>
 
   <div class="nav-links" id="nav-links">
+
     <a href="index.html">Home</a>
+
+    <!-- SERVICES DROPDOWN -->
+    <div class="nav-item dropdown">
+      <a href="services.html" class="dropbtn">Services ▾</a>
+      <div class="dropdown-content">
+        <a href="service-web-app.html">Web App Pentest</a>
+        <a href="service-api-security.html">API Security</a>
+        <a href="service-network-infrastructure.html">Network Pentest</a>
+        <a href="service-red-team.html">Red Team</a>
+        <a href="service-social-engineering.html">Social Engineering</a>
+        <a href="book-a-pentest.html" class="dropdown-cta">Book a Pentest</a>
+      </div>
+    </div>
+
     <a href="case-studies.html">Case Studies</a>
-    <a href="services.html">Services</a>
-    <a href="book-a-pentest.html">Book a Pentest</a>
-    <a href="referral.html">Referral Program</a>
-    <a href="scanner.html">EchoScanner</a>
-    <a href="client-portal.html">EchoClients</a>
+
+    <!-- TOOLS DROPDOWN -->
+    <div class="nav-item dropdown">
+      <a href="scanner.html" class="dropbtn">Tools ▾</a>
+      <div class="dropdown-content">
+        <a href="scanner.html">EchoScanner-NextGen</a>
+        <a href="client-portal.html">Client Portal</a>
+      </div>
+    </div>
+
+    <a href="methodology.html">Methodology</a>
+
+    <a href="contact.html" class="nav-cta">Contact</a>
+
   </div>
+
+  <div id="nav-overlay"></div>
 </nav>
