@@ -25,11 +25,50 @@ document.addEventListener("DOMContentLoaded", () => {
         if (placeholderId === "nav-placeholder") {
           const toggle = document.getElementById("menu-toggle");
           const links = document.getElementById("nav-links");
+          const overlay = document.getElementById("nav-overlay");
+
           if (toggle && links) {
+            const closeMenu = () => {
+              links.classList.remove("open");
+              toggle.classList.remove("open");
+              if (overlay) overlay.classList.remove("active");
+            };
+
             toggle.addEventListener("click", () => {
               links.classList.toggle("open");
+              toggle.classList.toggle("open");
+              if (overlay) overlay.classList.toggle("active");
+            });
+
+            if (overlay) overlay.addEventListener("click", closeMenu);
+
+            // Close menu when a link is clicked (mobile)
+            links.querySelectorAll("a").forEach(a => {
+              a.addEventListener("click", () => {
+                if (window.matchMedia("(max-width: 820px)").matches) closeMenu();
+              });
             });
           }
+
+          // Mobile dropdowns (tap to expand)
+          const isMobile = () => window.matchMedia("(max-width: 820px)").matches;
+
+          document.querySelectorAll(".dropdown .dropbtn").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+              if (!isMobile()) return;        // desktop: allow normal navigation/hover
+              e.preventDefault();             // mobile: prevent navigation on first tap
+              const parent = btn.closest(".dropdown");
+              if (!parent) return;
+              parent.classList.toggle("open");
+            });
+          });
+
+          // Optional: close dropdowns when clicking outside (mobile)
+          document.addEventListener("click", (e) => {
+            if (!isMobile()) return;
+            if (e.target.closest(".dropdown")) return;
+            document.querySelectorAll(".dropdown.open").forEach(d => d.classList.remove("open"));
+          });
         }
       })
       .catch(err => console.error(`Failed to load ${file}:`, err));
@@ -38,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
   injectFragment("nav-placeholder", "nav.html");
   injectFragment("footer-placeholder", "footer.html");
 });
+
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("epSubsModal");
   if (!modal) return;
