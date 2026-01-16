@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Internal Network Pentest – Mixed Windows & Web | EchoPentest</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="nav-slot"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Internal Network Penetration Test</h1>
+        <p>
+          Mixed Windows & web environment assessment focused on trust failures, credential reuse,
+          lateral movement paths, and practical remediation.
+        </p>
+
+        <ul class="hero-bullets">
+          <li>Public-safe write-up (no creds, no sensitive artifacts)</li>
+          <li>Client-style structure: scope → findings → impact → fixes</li>
+          <li>Shows real methodology, not “look at my tools”</li>
+        </ul>
+
+        <div class="hero-actions">
+          <a class="hero-btn secondary" href="case-studies.html">← Back to Case Studies</a>
+          <a class="hero-btn primary" href="#findings">Jump to findings</a>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <h3>Tags</h3>
+        <ul>
+          <li>Internal</li>
+          <li>Windows (Win7/8/10 + Server/DC)</li>
+          <li>SMB / RDP</li>
+          <li>HTTP/HTTPS (Juice Shop + DVWA)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUMMARY -->
+  <section class="section">
+    <h2>Executive Summary</h2>
+    <div class="card">
+      <p>
+        The environment exposed systemic trust and authentication weaknesses that enabled administrative control
+        without relying on complex exploitation. The primary risks were credential reuse across systems, legacy
+        remote access posture, and overly permissive file sharing. These conditions would allow a realistic attacker
+        to expand access rapidly once any valid credentials are obtained.
+      </p>
+    </div>
+  </section>
+
+  <!-- SCOPE -->
+  <section class="section">
+    <h2>Scope and Rules of Engagement</h2>
+
+    <div class="cs-two-col">
+      <div class="card">
+        <h3>In scope</h3>
+        <ul class="cs-list">
+          <li>Windows 7, Windows 8, Windows 10 endpoints</li>
+          <li>Windows Server (Domain Controller role)</li>
+          <li>Internal web apps: OWASP Juice Shop + DVWA</li>
+          <li>Services: SMB, RDP, HTTP/HTTPS</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Out of scope</h3>
+        <ul class="cs-list">
+          <li>Denial-of-service testing</li>
+          <li>Destructive payloads</li>
+          <li>Publishing sensitive credentials or personal data</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENVIRONMENT -->
+  <section class="section">
+    <h2>Environment Overview</h2>
+    <div class="card">
+      <p>
+        This lab simulates a small organization network with mixed OS maturity and internal web apps.
+        The key lesson: patching alone does not save you when identity hygiene and trust boundaries are weak.
+      </p>
+
+      <div class="cs-table-wrap">
+        <table class="cs-table">
+          <thead>
+            <tr>
+              <th>Asset</th>
+              <th>Role</th>
+              <th>Primary services</th>
+              <th>Risk theme</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Windows 7</td>
+              <td>Legacy workstation</td>
+              <td>SMB, RDP</td>
+              <td>Legacy remote access posture</td>
+            </tr>
+            <tr>
+              <td>Windows 8</td>
+              <td>User workstation</td>
+              <td>SMB, RDP</td>
+              <td>Inconsistent hardening</td>
+            </tr>
+            <tr>
+              <td>Windows 10</td>
+              <td>Modern workstation</td>
+              <td>SMB</td>
+              <td>Credential trust defeats patching</td>
+            </tr>
+            <tr>
+              <td>Windows Server (DC)</td>
+              <td>Crown jewels</td>
+              <td>AD services</td>
+              <td>Risk amplification</td>
+            </tr>
+            <tr>
+              <td>OWASP Juice Shop</td>
+              <td>Internal web app</td>
+              <td>HTTP/HTTPS</td>
+              <td>Trust & logic abuse</td>
+            </tr>
+            <tr>
+              <td>DVWA</td>
+              <td>Legacy web app</td>
+              <td>HTTP</td>
+              <td>Maintenance debt</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cs-placeholder">
+        <div class="cs-placeholder-title">Diagram placeholder</div>
+        <div class="cs-placeholder-text">Drop your network diagram image here later.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINDINGS -->
+  <section class="section" id="findings">
+    <h2>Key Findings</h2>
+
+    <div class="card cs-finding">
+      <div class="cs-finding-header">
+        <h3>Credential reuse enabled lateral movement across multiple hosts</h3>
+        <span class="cs-sev critical">Critical</span>
+      </div>
+      <p>
+        Valid credentials were accepted across multiple systems via SMB/RDP, demonstrating weak identity hygiene and
+        a high likelihood of rapid compromise expansion without requiring software exploitation.
+      </p>
+      <div class="cs-two-col">
+        <div>
+          <h3 style="font-size:1.05rem;margin-top:8px;">Impact</h3>
+          <ul class="cs-list">
+            <li>Full endpoint compromise</li>
+            <li>High probability of “reach” into servers if extended</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size:1.05rem;margin-top:8px;">Recommendations</h3>
+          <ul class="cs-list">
+            <li>Unique local admin passwords (e.g., LAPS)</li>
+            <li>Reduce lateral protocols between workstations</li>
+            <li>MFA for privileged access where possible</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card cs-finding">
+      <div class="cs-finding-header">
+        <h3>Legacy RDP posture reduced security baselines</h3>
+        <span class="cs-sev high">High</span>
+      </div>
+      <p>
+        Legacy systems required weaker negotiation and/or reduced protections, increasing susceptibility to credential-based
+        compromise and expanding attacker options for interactive control.
+      </p>
+      <h3 style="font-size:1.05rem;margin-top:10px;">Recommendations</h3>
+      <ul class="cs-list">
+        <li>Enforce NLA where supported</li>
+        <li>Segment or retire legacy endpoints</li>
+        <li>Restrict RDP to management networks / VPN</li>
+      </ul>
+    </div>
+
+    <div class="card cs-finding">
+      <div class="cs-finding-header">
+        <h3>Overly permissive SMB shares increased sensitive data exposure and execution risk</h3>
+        <span class="cs-sev high">High</span>
+      </div>
+      <p>
+        SMB share sprawl exposed user data and increased the likelihood of indirect execution risk when trusted files
+        (scripts/configs) are writable by inappropriate identities.
+      </p>
+      <h3 style="font-size:1.05rem;margin-top:10px;">Recommendations</h3>
+      <ul class="cs-list">
+        <li>Audit shares and enforce least privilege</li>
+        <li>Separate “data” shares from “deployment/scripts” shares</li>
+        <li>Monitor share write events</li>
+      </ul>
+    </div>
+
+    <div class="card cs-finding">
+      <div class="cs-finding-header">
+        <h3>Internal web apps relied on trust assumptions that can be abused</h3>
+        <span class="cs-sev medium">Medium</span>
+      </div>
+      <p>
+        Internal web applications often trust authenticated users and client-side controls. Logic and authorization flaws
+        can allow unauthorized access paths even in “internal-only” deployments.
+      </p>
+      <h3 style="font-size:1.05rem;margin-top:10px;">Recommendations</h3>
+      <ul class="cs-list">
+        <li>Enforce server-side authorization for every action</li>
+        <li>Apply rate limiting and anti-automation controls</li>
+        <li>Harden sessions (cookie flags, expiry, logout invalidation)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- NARRATIVE -->
+  <section class="section">
+    <h2>Attack Narrative (Public-safe)</h2>
+    <div class="card">
+      <ol class="cs-steps">
+        <li><strong>Discovery:</strong> services were identified across endpoints and internal web applications.</li>
+        <li><strong>Trust validation:</strong> credential acceptance and share access confirmed identity hygiene issues.</li>
+        <li><strong>Expansion:</strong> reuse of valid credentials enabled access across multiple hosts via SMB/RDP.</li>
+        <li><strong>Impact:</strong> administrative control was achievable without relying on complex exploitation.</li>
+      </ol>
+
+      <p style="margin-top:12px; opacity:0.85;">
+        Note: specific exploit steps, credentials, and sensitive artifacts are intentionally omitted.
+      </p>
+
+      <div class="hero-actions" style="margin-top:16px;">
+        <a class="hero-btn primary" href="contact.html">Request an assessment</a>
+        <a class="hero-btn secondary" href="services.html">View services</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-slot"></div>
+
+  <script>
+    async function includeHTML(id, file) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const res = await fetch(file);
+      el.innerHTML = await res.text();
+    }
+    includeHTML("nav-slot", "nav.html");
+    includeHTML("footer-slot", "footer.html");
+  </script>
+
+</body>
+</html>
