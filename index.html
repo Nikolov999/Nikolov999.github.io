@@ -82,37 +82,64 @@
     </div>
   </section>
 
-  <!-- ECHOSCANNER DEMO -->
+  <!-- ECHOSCANNER (PUBLIC) + NEXTGEN (INTERNAL) -->
   <section class="section" id="echoscanner">
-    <h2>See EchoScanner in action</h2>
+    <h2>EchoScanner: fast discovery that supports real pentesting</h2>
     <p>
-      Companies don’t want promises — they want proof. EchoScanner is a lightweight tool we use to speed up discovery
-      and surface risk fast, so more time goes into validation and impact.
+      Tools don’t replace manual testing — they speed up the boring parts so the effort goes into validation and impact.
+      EchoPentest uses two layers: a public “Lite” scanner for safe reconnaissance, and an internal NextGen workflow used only in authorized engagements.
     </p>
 
     <div class="card">
-      <h3>What it shows (in plain English)</h3>
+      <h3>EchoScanner Lite (public)</h3>
+      <p style="opacity:0.9;">
+        A safe, lightweight checker for early visibility. It helps you understand what your domain publicly exposes at a metadata level —
+        without scanning services or attempting access.
+      </p>
       <ul>
-        <li><strong>What’s exposed:</strong> open ports, services, versions, and misconfig clues</li>
-        <li><strong>What matters:</strong> the highest-risk items first (not a 200-line dump)</li>
-        <li><strong>What to do next:</strong> suggested checks and follow-up validation steps</li>
+        <li><strong>DNS records:</strong> A / AAAA / MX / NS / TXT / SOA</li>
+        <li><strong>WHOIS snapshot:</strong> registrar + key dates + name servers (when available)</li>
+        <li><strong>Useful context:</strong> helps scope an engagement and catch obvious configuration mistakes early</li>
       </ul>
 
+      <div class="hero-actions" style="margin-top:14px;">
+        <a href="scanner.html" class="hero-btn primary">Run EchoScanner Lite</a>
+        <a href="methodology.html" class="hero-btn secondary">How we validate findings</a>
+      </div>
+
+      <p style="margin-top:0.75rem; font-size:0.9rem; opacity:0.9;">
+        Note: EchoScanner Lite is passive recon support. Real risk assessment requires manual validation.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>EchoScanner-NextGen (internal, authorized engagements only)</h3>
+      <p style="opacity:0.9;">
+        This is the internal workflow used during scoped pentests. It helps map exposure, prioritize what to test,
+        and document evidence — but it’s not exposed publicly because it’s designed for authorized environments.
+      </p>
+      <ul>
+        <li><strong>Scope-first:</strong> hosts/ranges/apps defined in writing before any testing starts</li>
+        <li><strong>Prioritization:</strong> highlights what’s most likely to lead to impact, not just “what’s open”</li>
+        <li><strong>Report support:</strong> keeps evidence and reproduction steps clean for remediation</li>
+      </ul>
+
+      <!-- Video placeholder (NextGen demo) -->
       <div style="margin-top:14px; border:1px dashed rgba(196,181,253,0.35); border-radius:12px; background:rgba(255,255,255,0.02); padding:14px;">
-        <div style="color:#e5d4ff; font-weight:700; margin-bottom:4px;">Drop a short demo here</div>
+        <div style="color:#e5d4ff; font-weight:700; margin-bottom:4px;">Video demo placeholder</div>
         <div style="opacity:0.85;">
-          Add a GIF/video/screenshot of EchoScanner output (recommended: 20–30 seconds or 2–3 screenshots).
-          Keep it visual — no raw JSON on the homepage.
+          Add a 20–45s screen recording of EchoScanner-NextGen running in your lab environment (your own systems only).
+          Show: scope → output summary → “next manual checks” → report/evidence preview.
         </div>
       </div>
 
       <div class="hero-actions" style="margin-top:14px;">
-        <a href="scanner.html" class="hero-btn primary">Run free scan</a>
-        <a href="case-studies.html" class="hero-btn secondary">View case studies</a>
+        <a href="case-studies.html" class="hero-btn primary">See real case studies</a>
+        <a href="book-a-pentest.html" class="hero-btn secondary">Use this on my environment</a>
       </div>
 
       <p style="margin-top:0.75rem; font-size:0.9rem; opacity:0.9;">
-        Important: the scan is discovery support. Findings only matter after manual validation and impact proof.
+        NextGen is not a “press button, hack company” tool. It’s a structured workflow that supports legal, documented testing.
       </p>
     </div>
   </section>
