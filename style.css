@@ -1150,3 +1150,22 @@ footer {
   opacity: 0.9;
 }
 
+/* Make dropdown usable: keep hover active while moving into the panel */
+@media (min-width: 821px) {
+  .dropdown {
+    position: relative;
+    padding-bottom: 10px; /* creates a hover bridge */
+  }
+
+  .dropdown-content {
+    top: 100%;            /* attach menu to bottom of the parent */
+    margin-top: 0;        /* remove the gap */
+  }
+
+  /* Optional: widen hover zone slightly */
+  .dropbtn {
+    display: inline-flex;
+    padding: 8px 0;
+  }
+}
+
