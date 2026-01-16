@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Case Studies | EchoPentest</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV INCLUDE -->
+  <div id="nav-placeholder"></div>
+
+  <!-- HERO (reuses your hero layout + buttons) -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Case Studies</h1>
+        <p>
+          Client-style assessments written for credibility: scope, findings, impact, and fixes.
+          No exploit tutorials. No noise.
+        </p>
+
+        <ul class="hero-bullets">
+          <li>Clear environment + scope</li>
+          <li>Trust & credential failures (real-world patterns)</li>
+          <li>Impact that makes sense to non-technical readers</li>
+          <li>Practical mitigations</li>
+        </ul>
+
+        <div class="hero-actions">
+          <a class="hero-btn primary" href="case-study-internal-network.html">Read the flagship case study</a>
+          <a class="hero-btn secondary" href="#how-i-write">How these are written</a>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <h3>Featured</h3>
+        <p><strong>Internal Network Pentest</strong> – Mixed Windows & Web Environment</p>
+        <ul>
+          <li>SMB trust & share exposure</li>
+          <li>RDP posture (legacy realities)</li>
+          <li>Web logic & authorization failures</li>
+          <li>Lateral movement modelling</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER BAR (optional, lightweight) -->
+  <section class="section">
+    <div class="cs-toolbar">
+      <div class="cs-search">
+        <label for="cs-q">Search</label>
+        <input id="cs-q" type="search" placeholder="Search (SMB, RDP, web, AD, creds)..." />
+      </div>
+
+      <div class="cs-tags">
+        <button class="cs-tag is-active" data-tag="all" type="button">All</button>
+        <button class="cs-tag" data-tag="internal" type="button">Internal</button>
+        <button class="cs-tag" data-tag="web" type="button">Web</button>
+        <button class="cs-tag" data-tag="windows" type="button">Windows</button>
+        <button class="cs-tag" data-tag="ad" type="button">Active Directory</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY CARDS (reuse your .card) -->
+  <section class="section">
+    <h2>Featured Case Study</h2>
+
+    <div class="card cs-card" data-tags="internal windows ad web">
+      <div class="cs-meta">
+        <span class="cs-pill">Flagship</span>
+        <span class="cs-pill muted">Internal</span>
+        <span class="cs-pill muted">Windows</span>
+        <span class="cs-pill muted">Web</span>
+        <span class="cs-pill muted">AD</span>
+      </div>
+
+      <h3>Internal Network Penetration Test – Mixed Windows & Web Environment</h3>
+      <p>
+        A simulated client environment containing legacy and modern Windows systems plus internal web apps.
+        Focused on trust failures, credential reuse, and realistic lateral movement paths.
+      </p>
+
+      <ul class="cs-highlights">
+        <li>Credential reuse as the primary compromise amplifier</li>
+        <li>RDP posture & legacy security baselines</li>
+        <li>SMB share sprawl and sensitive data exposure</li>
+        <li>Web trust assumptions and authorization weaknesses</li>
+      </ul>
+
+      <div class="hero-actions cs-actions">
+        <a class="hero-btn primary" href="case-study-internal-network.html">Read case study</a>
+        <a class="hero-btn secondary" href="#how-i-write">Writing approach</a>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 26px;">All Case Studies</h2>
+
+    <div class="cs-grid" id="cs-grid">
+      <!-- Duplicate these blocks later as you publish more -->
+      <div class="card cs-card cs-card-compact" data-tags="internal windows ad web">
+        <div class="cs-meta">
+          <span class="cs-pill muted">SMB</span>
+          <span class="cs-pill muted">RDP</span>
+          <span class="cs-pill muted">HTTP/HTTPS</span>
+          <span class="cs-pill muted">AD</span>
+        </div>
+        <h3 style="margin-top:10px;">
+          <a class="cs-link" href="case-study-internal-network.html">Internal Network Pentest – Mixed Windows & Web</a>
+        </h3>
+        <p style="margin-top:8px;">
+          One flagship assessment demonstrating real-world methodology and chained impact.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW YOU WRITE THESE -->
+  <section class="section" id="how-i-write">
+    <h2>How these case studies are written</h2>
+
+    <div class="cs-two-col">
+      <div class="card">
+        <h3>What you’ll see</h3>
+        <ul class="cs-list">
+          <li>Scope + environment overview</li>
+          <li>Attack surface & trust assumptions</li>
+          <li>Key findings with business impact</li>
+          <li>Practical mitigation guidance</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>What you won’t see</h3>
+        <ul class="cs-list">
+          <li>Step-by-step exploitation on real targets</li>
+          <li>Sensitive data, creds, or “how to break in” tutorials</li>
+          <li>200 screenshots of tool output</li>
+          <li>Claims without evidence</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER INCLUDE -->
+  <div id="footer-placeholder"></div>
+
+  <!-- If you already have a global JS that loads nav/footer, keep it.
+       Otherwise use the tiny include script below. -->
+  <script>
+    // Minimal includes (safe to keep even if you later replace it)
+    async function includeHTML(id, file) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const res = await fetch(file);
+      el.innerHTML = await res.text();
+    }
+    includeHTML("nav-slot", "nav.html");
+    includeHTML("footer-slot", "footer.html");
+  </script>
+
+  <script src="case-studies.js"></script>
+</body>
+</html>
