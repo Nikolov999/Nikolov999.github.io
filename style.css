@@ -1231,3 +1231,22 @@ footer {
 .nav-cta:hover {
   opacity: 0.9;
 }
+
+/* ===== EchoPentest subtle motion ===== */
+
+.ep-hidden {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.ep-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.tool-card,
+.tool-badge {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
