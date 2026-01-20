@@ -379,4 +379,66 @@
 
   <div id="footer-placeholder"></div>
 </body>
+
+  <script>
+/* =====================================================
+   EchoPhishing – micro-interactions
+   Subtle. Professional. No circus.
+===================================================== */
+
+(function () {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Card hover lift ---------- */
+  document.querySelectorAll(".tool-card").forEach(card => {
+    card.addEventListener("mouseenter", () => {
+      card.style.transform = "translateY(-6px)";
+      card.style.boxShadow = "0 26px 60px rgba(0,0,0,0.85)";
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "translateY(0)";
+      card.style.boxShadow = "0 18px 45px rgba(15,23,42,0.8)";
+    });
+  });
+
+  /* ---------- Badge shimmer ---------- */
+  document.querySelectorAll(".tool-badge").forEach(badge => {
+    badge.addEventListener("mouseenter", () => {
+      badge.style.background =
+        "linear-gradient(135deg, rgba(139,92,246,0.35), rgba(236,72,153,0.35))";
+    });
+
+    badge.addEventListener("mouseleave", () => {
+      badge.style.background =
+        "radial-gradient(circle at top left, rgba(129,140,248,0.16), transparent)";
+    });
+  });
+
+  /* ---------- Fade-in on scroll ---------- */
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("ep-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document
+      .querySelectorAll(
+        ".tool-hero, .tool-card, .tool-section, .tool-cta"
+      )
+      .forEach(el => {
+        el.classList.add("ep-hidden");
+        observer.observe(el);
+      });
+  }
+})();
+</script>
+
 </html>
