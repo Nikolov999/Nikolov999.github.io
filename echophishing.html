@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EchoPhishing — Phishing Analysis Toolkit | ECHO Pentest</title>
+  <meta name="description" content="EchoPhishing is a desktop phishing analysis toolkit used by EchoPentest to safely assess suspicious emails and phishing campaigns." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Global styles & JS -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="Logo/Logo.png">
+  <script src="main.js" defer></script>
+
+  <!-- Page-specific styling -->
+  <style>
+    .tool-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 1.5rem 4rem;
+      color: #e5e7eb;
+    }
+
+    .tool-hero {
+      margin-bottom: 3rem;
+    }
+
+    .tool-eyebrow {
+      font-size: 0.85rem;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      color: #a5b4fc;
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-title {
+      font-size: clamp(2.1rem, 3vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .tool-highlight {
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .tool-subtitle {
+      font-size: 1rem;
+      max-width: 680px;
+      color: #9ca3af;
+    }
+
+    .tool-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+    }
+
+    .tool-badge {
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.8rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.16), transparent);
+      color: #e5e7eb;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+      margin: 3rem 0;
+    }
+
+    .tool-card {
+      border-radius: 16px;
+      padding: 1.5rem;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(18px);
+    }
+
+    .tool-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .tool-card p,
+    .tool-card li {
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .tool-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.6rem 0 0;
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .tool-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      margin-right: 0.35rem;
+      background: linear-gradient(135deg, #22c55e, #4ade80);
+    }
+
+    .tool-note {
+      margin-top: 2.5rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+      max-width: 720px;
+    }
+
+    .tool-cta {
+      margin-top: 4rem;
+      border-radius: 18px;
+      padding: 2rem 1.5rem;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent),
+                  radial-gradient(circle at bottom right, rgba(236, 72, 153, 0.18), transparent),
+                  #020617;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .tool-cta h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-cta p {
+      font-size: 0.95rem;
+      color: #e5e7eb;
+      max-width: 640px;
+    }
+
+    .tool-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+
+    .tool-cta-primary,
+    .tool-cta-secondary {
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .tool-cta-primary {
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
+      color: #fff;
+    }
+
+    .tool-cta-secondary {
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .tool-meta {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-top: 0.6rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main class="tool-page">
+    <!-- HERO -->
+    <section class="tool-hero">
+      <div class="tool-eyebrow">EchoPentest Toolkit</div>
+      <h1 class="tool-title">
+        EchoPhishing —
+        <span class="tool-highlight">Phishing analysis, done properly.</span>
+      </h1>
+      <p class="tool-subtitle">
+        EchoPhishing is a desktop-based phishing analysis tool used by EchoPentest during security
+        assessments to safely evaluate suspicious emails, indicators, and social engineering techniques —
+        without interacting with live threats.
+      </p>
+
+      <div class="tool-badges">
+        <div class="tool-badge">Desktop application (.exe)</div>
+        <div class="tool-badge">Offline analysis</div>
+        <div class="tool-badge">Analyst-driven</div>
+        <div class="tool-badge">No live email access</div>
+      </div>
+    </section>
+
+    <!-- VALUE GRID -->
+    <section class="tool-grid">
+      <article class="tool-card">
+        <h3><span class="tool-dot"></span>What EchoPhishing does</h3>
+        <p>Designed to support real phishing investigations, not demos.</p>
+        <ul>
+          <li>• Parses suspicious email content and headers</li>
+          <li>• Flags common phishing indicators and social engineering cues</li>
+          <li>• Assists analysts in prioritising risk</li>
+          <li>• Produces structured findings for reports</li>
+        </ul>
+      </article>
+
+      <article class="tool-card">
+        <h3><span class="tool-dot"></span>What it deliberately avoids</h3>
+        <p>To keep clients safe and compliant.</p>
+        <ul>
+          <li>• No automatic clicking of links or attachments</li>
+          <li>• No mailbox access or credential harvesting</li>
+          <li>• No uncontrolled internet interaction</li>
+          <li>• No “spray-and-pray” automation</li>
+        </ul>
+      </article>
+
+      <article class="tool-card">
+        <h3><span class="tool-dot"></span>Who this tool is for</h3>
+        <p>EchoPhishing is used internally and with client consent.</p>
+        <ul>
+          <li>• Small and mid-size businesses</li>
+          <li>• Security assessments & phishing simulations</li>
+          <li>• Incident response triage</li>
+          <li>• Security awareness follow-ups</li>
+        </ul>
+      </article>
+    </section>
+
+    <p class="tool-note">
+      EchoPhishing is <strong>not a consumer product</strong>. It is a controlled assessment tool
+      operated by EchoPentest as part of a broader security engagement.
+      Public download access will be introduced only when it meets strict safety and documentation standards.
+    </p>
+
+    <!-- CTA -->
+    <section class="tool-cta">
+      <h2>Want phishing risk assessed in your organisation?</h2>
+      <p>
+        Tools don’t solve phishing — people and process do. EchoPhishing is one component of how I
+        evaluate real-world email threats, social engineering risk, and user exposure during a security
+        assessment.
+      </p>
+
+      <div class="tool-cta-actions">
+        <a href="book-a-pentest.html#phishing" class="tool-cta-primary">
+          Discuss a phishing assessment
+        </a>
+        <a href="services.html#phishing" class="tool-cta-secondary">
+          View security services
+        </a>
+      </div>
+
+      <div class="tool-meta">
+        No auto-downloads. No gimmicks. Clear scope, clear findings, clear remediation.
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+</body>
+</html>
